@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_quiz"
+        android:title="@string/do_quiz" />
+
+    <item
+        android:id="@+id/bookmarksFragment"
+        android:icon="@drawable/ic_bookmark_added"
+        android:title="@string/bookmarked_questions" />
+
+    <item
+        android:id="@+id/progressHomeFragment"
+        android:icon="@drawable/ic_graph"
+        android:title="@string/progress" />
+
+    <item
+        android:id="@+id/manageCoursesFragment"
+        android:icon="@drawable/ic_add"
+        android:title="@string/manage" />
+</menu>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardview_with_border"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tv_attempt_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_split_line_9"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <View
+            android:id="@+id/vertical_split_line_9"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+            android:background="@color/orange"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_attempt_order"
+            app:layout_constraintEnd_toStartOf="@+id/tv_attempt_date"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_attempt_order"
+            app:layout_constraintTop_toTopOf="@+id/tv_attempt_order" />
+
+        <TextView
+            android:id="@+id/tv_attempt_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingHorizontal="3dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/attempt_split_vertical"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="5"
+            app:layout_constraintStart_toEndOf="@+id/vertical_split_line_9"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="23 Th9 2021 09:30 CH" />
+
+        <View
+            android:id="@+id/attempt_split_vertical"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+            android:background="@color/orange"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_attempt_date"
+            app:layout_constraintEnd_toStartOf="@+id/tv_attempt_score"
+            app:layout_constraintStart_toEndOf="@+id/tv_attempt_date"
+            app:layout_constraintTop_toTopOf="@+id/tv_attempt_date" />
+
+        <TextView
+            android:id="@+id/tv_attempt_score"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/attempt_split_vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="8.9" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

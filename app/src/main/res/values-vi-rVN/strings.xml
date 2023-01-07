@@ -1,0 +1,255 @@
+<resources>
+
+    <!-- Nav graph label -->
+    <string name="home_fragment_label">Chọn Đề</string>
+    <string name="review_answers_fragment_label">Kết Quả Của Bạn</string>
+    <string name="graph_fragment_label">Quá Trình</string>
+    <string name="bookmarks_fragment_label">Các Câu Bookmark</string>
+    <string name="manage_courses_fragment_label">Quản Lý Khóa Học</string>
+    <string name="manage_topics_fragment_label">Quản Lý Chủ Đề</string>
+    <string name="add_edit_topic_fragment_label">Thêm/Sửa Chủ Đề</string>
+    <string name="manage_questions_fragment_label">Quản Lý Câu Hỏi</string>
+    <string name="add_edit_question_fragment_label">Thêm/Sửa Câu Hỏi</string>
+    <string name="progress_fragment_label">Quá Trình</string>
+
+    <!-- Drawer Navigation menu -->
+    <string name="make_english_easier">Để 990 TOEIC, 9 IELTS, 120 TOEFL dễ dàng hơn!</string>
+    <string name="do_quiz">Làm đề</string>
+    <string name="bookmarked_questions">Các câu bookmark</string>
+    <string name="manage">Quản lý</string>
+    <string name="progress">Quá trình</string>
+
+    <!-- Common strings -->
+    <string name="iv_drop_down_desc">Biểu tượng danh sách đổ xuống</string>
+    <string name="unknown_error_occurred">Lỗi không xác định đã xảy ra</string>
+    <string name="star" translatable="false">*</string>
+    <string name="required_field">*Bắt buộc</string>
+    <string name="optional_field">(Tùy chọn)</string>
+    <string name="btn_cancel">Hủy</string>
+    <string name="close">Đóng</string>
+
+    <!-- Home strings -->
+    <string name="choose_test_by_topic_tab">Theo chủ đề</string>
+    <string name="choose_mixed_test_tab">Ngẫu nhiên</string>
+
+    <!-- Choose test by topic strings (XML)-->
+    <string name="tv_choose_topic_based_test">Làm Đề Theo Chủ Đề</string>
+    <string name="tv_choose_course">Chọn khóa học</string>
+    <string name="iv_course_help_icon_desc">Biểu tượng hướng dẫn chọn khóa học</string>
+    <string name="spinner_course_content_desc">Danh sách đổ xuống chọn khóa học</string>
+    <string name="tv_choose_topic">Chọn chủ đề</string>
+    <string name="iv_topic_help_icon_desc">Biểu tượng hướng dẫn chọn chủ đề</string>
+    <string name="spinner_topic_content_desc">Danh sách đổ xuống chọn chủ đề</string>
+    <string name="tv_total_questions_in_topic">Tổng câu hỏi</string>
+    <string name="btn_start_test">Bắt đầu làm</string>
+    <!-- Choose test by topic strings (Code)-->
+    <string name="no_courses_to_start_test">Không có khóa học nào, nên bạn không thể làm đề</string>
+    <string name="no_topics_to_start_test">Không có chủ đề nào, nên bạn không thể làm đề</string>
+    <string name="pick_course_help_title">Cách Chọn Khóa Học</string>
+    <string name="pick_choose_course_help">Để làm bài, bạn cần chọn khóa học và chủ đề.\n\nĐể chọn
+        khóa học, vui lòng chọn từ danh sách các khóa học ở ngay dưới đây. Chúc bạn làm bài suôn sẻ!
+    </string>
+    <string name="pick_topic_help_title">Cách Chọn Chủ Đề</string>
+    <string name="pick_choose_topic_help">Để chọn chủ đề, vui lòng chọn từ danh sách các chủ đề ở
+        ngay dưới đây. Chúc bạn làm bài suôn sẻ!
+    </string>
+
+    <!-- Choose mixed test strings (XML) -->
+    <string name="choose_mixed_quiz">Đề Ngẫu Nhiên</string>
+    <string name="tv_choose_quantity">Chọn số lượng</string>
+    <string name="iv_quantity_help_icon_desc">Biểu tượng hướng dẫn chọn số lượng câu hỏi</string>
+    <string name="spinner_quantity_content_desc">Danh sách đổ xuống chọn số lượng</string>
+    <!-- Choose mixed test strings (Code) -->
+    <string name="choose_quantity_help_title">Cách Chọn Số Lượng Câu Hỏi</string>
+    <string name="choose_quantity_help_msg">Để làm bài, bạn cần chọn số lượng câu hỏi.\n\nĐể chọn
+        số lượng, vui lòng chọn từ danh sách ở ngay dưới đây. Chúc bạn làm bài suôn sẻ!
+    </string>
+
+    <!-- quiz fragment strings (XML) -->
+    <string name="tv_done_quantity">Đã làm:</string>
+    <string name="tv_course">Khóa:</string>
+    <string name="tv_topic">Chủ đề:</string>
+    <string name="btn_submit_quiz">Nộp bài</string>
+    <string name="btn_check_answers">Soát đáp án</string>
+    <string name="btn_back_to_quiz">Về bài làm</string>
+    <string name="tv_question_number">Câu hỏi thứ</string>
+    <string name="tv_answer_status">Câu trả lời</string>
+    <!-- Each Quiz Fragment (XML) -->
+    <string name="rb_option_1">Lựa chọn 1</string>
+    <string name="rb_option_2">Lựa chọn 2</string>
+    <string name="rb_option_3">Lựa chọn 3</string>
+    <string name="rb_option_4">Lựa chọn 4</string>
+    <!-- quiz fragment strings (Code) -->
+    <string name="exit_dialog_title">Dừng Bài Làm?</string>
+    <string name="exit_dialog_message">Bạn muốn dừng bài làm tại đây?</string>
+    <string name="btn_stop_test">Dừng làm</string>
+    <string name="oops_dialog_title">Ôi Bạn Ơi!!!</string>
+    <string name="oops_dialog_message">Tại sao bạn lại dại dột thoát bài làm thế? Quá trình làm của
+        bạn đã mất hết. Mong bạn thông cảm, đây là 1 l̶ỗ̶i̶ tính năng của chúng tôi.</string>
+
+    <!-- Review answers strings (XML) -->
+    <string name="total_questions">Tổng Câu Hỏi:</string>
+    <string name="total_correct_answers">Tổng Câu Đúng:</string>
+    <string name="done_date">Ngày Làm:</string>
+    <string name="score">Điểm Số:</string>
+    <string name="iv_review_help_desc">Biểu tượng hướng dẫn đọc kết quả</string>
+    <string name="tv_question_order">STT</string>
+    <string name="tv_your_answer">Đã chọn</string>
+    <string name="tv_our_answer">Câu đúng</string>
+    <string name="btn_graph_desc">Đến biểu đồ</string>
+    <!-- Each Answer Review (XML)-->
+    <string name="not_yet_answered">Chưa chọn</string>
+    <string name="bookmark_this_question">Bookmark câu này?</string>
+    <string name="iv_bookmark_desc">Biểu tượng bookmark</string>
+    <string name="iv_option_desc">Biểu tượng chọn đáp án</string>
+    <string name="explanation">Giải thích</string>
+    <!-- Review answers strings (Code) -->
+    <string name="txt_review_answers_help_title">Cách Đọc Đáp Án</string>
+    <string name="txt_review_answers_help_message">Dưới đây là bảng kết quả của bạn:\n\n
+    * Nếu đúng, câu trả lời của bạn có màu xanh lá cây, và chúng tôi không hiện đáp án.\n\n
+        * Nếu sai, câu trả lời của bạn có màu đỏ, và câu trả lời đúng sẽ được hiển thị với màu xanh
+        lá cây.\n\n* Để xem chi tiết câu hỏi và giải thích, bạn vui lòng nhấn vào dòng mà bạn muốn xem.
+    </string>
+    <string name="bookmark_added">Đã thêm bookmark</string>
+    <string name="bookmark_not_added">Chưa thêm bookmark</string>
+    <string name="invalid_answer_index">Không hợp lệ</string>
+
+    <!-- Graph fragment strings (XML) -->
+    <string name="tv_read_graph_helper">Cách Đọc Biểu Đồ</string>
+    <string name="tv_graph_desc_1">Biểu đồ quá trình làm của bạn, thuộc chủ đề:</string>
+    <string name="tv_graph_desc_2">, trong khóa học:</string>
+    <string name="attempts_detail">Chi tiết các lần làm</string>
+    <string name="tv_attempt_order">Lần</string>
+    <string name="tv_attempts_detail_date">Ngày</string>
+    <string name="tv_attempts_detail_score">Điểm</string>
+    <!-- Graph fragment strings (Code) -->
+    <string name="read_graph_helper_message">1, Để biết kết quả của 1 lần làm, bạn hãy nhấn vào
+        điểm tương ứng trên biểu đồ.\n\n2, Điểm bạn vừa nhấn, hiện lên 1 ô nhỏ gồm 2 thông số:
+        lần làm, và số điểm của bạn.\nVí dụ: \"3: 6.9\" tức là lần làm thứ 3 có điểm là 6.9\n\n
+        3, Sau đó, bạn có thể kéo xuống danh sách các lần làm bài để biết thêm chi tiết về lần
+        làm bài đó.
+    </string>
+    <string name="data_set_name">Kết quả</string>
+    <string name="upper_y_limit">Cao nhất</string>
+    <string name="lower_y_limit">Thấp nhất</string>
+
+    <!-- Bookmarks Fragment strings (XML) -->
+    <string name="tv_bookmarks_filter">Lọc bookmark theo chủ đề</string>
+    <string name="iv_filter_bookmark_desc">Ký hiệu trợ giúp lọc bookmark</string>
+    <string name="btn_filter">Lọc</string>
+    <string name="no_bookmark_found">Không Có Bookmark Nào</string>
+    <string name="all_bookmarks">Tất cả bookmark</string>
+    <string name="tv_show_explanation">Xem giải thích</string>
+    <!-- Bookmarks Fragment strings (Code) -->
+    <string name="filter_bookmarks_help_title">Cách Lọc Các Câu Đã Bookmark</string>
+    <string name="visible_filter_bookmarks_help_msg">* Bạn có thể cho phần lọc bookmark ẩn/hiện bằng cách
+        nhấn vào dòng chữ: \"Lọc bookmark theo chủ đề\"\n\n* Để lọc được các câu đã bookmark theo
+        chủ đề, bạn vui lòng chọn khóa học và chủ đề từ danh sách dưới đây.
+    </string>
+    <string name="hidden_filter_bookmarks_help_msg">Bạn có thể cho phần lọc bookmark ẩn/hiện bằng cách
+        nhấn vào dòng chữ: \"Lọc bookmark theo chủ đề\".</string>
+    <string name="bookmarks_1">Các bookmark trong chủ đề:</string>
+    <string name="bookmarks_2">thuộc khóa học:</string>
+    <string name="no_courses_to_filter">Không có khóa học nào, vì vậy bạn không thể lọc các câu đã bookmark</string>
+    <string name="no_topics_to_filter">Không có chủ đề nào, vì vậy bạn không thể lọc các câu đã bookmark</string>
+    <string name="bookmark_removed_success">Xóa Bookmark thành công</string>
+    <string name="tv_hide_explanation">Đóng giải thích</string>
+
+    <!-- Manage courses strings (XML) -->
+    <string name="tv_all_courses">Tất Cả Khóa Học</string>
+    <!-- Manage courses strings (Code) -->
+    <string name="cannot_manage_practice_test">Bạn không có quyền quản lý khóa học Practice Test</string>
+
+    <!-- Manage topics fragment (XML) -->
+    <string name="tv_all_topics">Tất Cả Chủ Đề Trong Khóa Học:</string>
+    <string name="fab_add_topic_desc">Nút thêm chủ đề</string>
+    <string name="iv_edit_course_topic_desc">Nút sửa chủ đề</string>
+
+    <!-- Add, edit topic fragment strings (XML) -->
+    <string name="tv_add_topic">Thêm Chủ Đề</string>
+    <string name="topic_name_hint">Tên chủ đề*</string>
+    <string name="tv_delete_topic">Xóa Chủ Đề</string>
+    <!-- Add, edit topic fragment strings (Code) -->
+    <string name="topic_name_exceed_max_character">Tên chủ đề KHÔNG được vượt quá 100 ký tự.</string>
+    <string name="tv_edit_topic">Sửa Chủ Đề</string>
+    <string name="delete_topic_dialog_title">Xóa Chủ Đề?</string>
+    <string name="delete_topic_dialog_message">Bạn có thực sự muốn xóa chủ đề này? Xóa chủ đề này
+        cũng sẽ xóa các câu hỏi, các câu trả lời, và các điểm số liên quan tới chủ đề bị xóa.
+    </string>
+    <string name="add_topic_successfully">Thêm chủ đề thành công</string>
+    <string name="edit_topic_successfully">Sửa chủ đề thành công</string>
+    <string name="delete_topic_successfully">Xóa chủ đề thành công</string>
+
+    <!-- Manage questions fragment (XML) -->
+    <string name="no_questions_in_this_topic">Bạn chưa tạo bất kỳ câu hỏi nào trong chủ đề này!</string>
+    <string name="tv_all_questions_1">Tất Cả Câu Hỏi Trong Chủ Đề:</string>
+    <string name="tv_all_questions_2">, Thuộc Khóa Học:</string>
+    <string name="fab_add_question_desc">Nút để thêm câu hỏi</string>
+
+    <!-- Add, edit questions fragment strings -->
+    <string name="tv_add_question">Thêm Câu Hỏi</string>
+    <string name="question_hint">Câu hỏi*</string>
+    <string name="first_option_hint">Đáp án 1*</string>
+    <string name="second_option_hint">Đáp án 2*</string>
+    <string name="third_option_hint">Đáp án 3*</string>
+    <string name="fourth_option_hint">Đáp án 4*</string>
+    <string name="correct_answer_hint">Đáp án đúng*</string>
+    <string name="explanation_hint">Lời giải</string>
+    <string name="btn_delete_question">Xóa câu hỏi</string>
+    <!-- Add, edit questions fragment strings (XML) -->
+    <string name="add_correct_answer_msg">Câu trả lời đúng chỉ trong {a, b, c, d} viết thường, hoặc {A, B, C, D} viết hoa</string>
+    <string name="tv_edit_question">Sửa Câu Hỏi</string>
+    <string name="delete_question_dialog_title">Xóa Câu Hỏi?</string>
+    <string name="delete_question_dialog_message">Bạn có thực sự muốn xóa câu hỏi này? Xóa câu hỏi
+        này sẽ xóa câu trả lời tương ứng của bạn trong các lần làm đã qua, và bạn không thể bạn lại
+        câu hỏi mà bạn đã xóa.
+    </string>
+    <string name="add_question_successfully">Thêm câu hỏi thành công</string>
+    <string name="edit_question_successfully">Sửa câu hỏi thành công</string>
+    <string name="delete_question_successfully">Xóa câu hỏi thành công</string>
+
+    <!-- Progress Home (code) -->
+    <string name="detail_score_tab">Chi Tiết Điểm</string>
+    <string name="overall_tab">Tổng Quan</string>
+
+    <!-- Detail Score Fragment XML -->
+    <string name="btn_filter_result">Lọc kết quả</string>
+    <string name="btn_back">Quay về</string>
+    <string name="tv_filter_result_by">Lọc Kết Quả Theo?</string>
+    <string name="filter_by_overall">Toàn quá trình</string>
+    <string name="filter_by_mixed_quiz">Các lần làm ngẫu nhiên</string>
+    <string name="filter_by_course">Khóa Học</string>
+    <string name="filter_by_topic">Chủ Đề</string>
+    <string name="tv_filter">Lọc Kết Quả</string>
+    <string name="overall_score">Kết quả trung bình của bạn trong khóa học/chủ đề này:</string>
+    <!-- Code -->
+    <string name="graph_desc_when_no_data">Vui lòng chọn \"Lọc Kết Quả\" để xem quá trình của bạn</string>
+    <string name="graph_desc_overall">Biểu đồ kết quả thể hiện toàn bộ quá trình của bạn</string>
+    <string name="have_not_done_any_question">Bạn chưa làm bất kỳ 1 câu hỏi nào trong khóa học/chủ đề này</string>
+    <string name="graph_desc_by_course">Biểu đồ kết quả thể hiện của bạn trong khóa học:</string>
+    <string name="graph_desc_by_topic_1">Biểu đồ kết quả thể hiện của bạn trong chủ đề:</string>
+    <string name="graph_desc_by_topic_2">, thuộc khóa học:</string>
+    <string name="progress_no_courses">Không có khóa học trong hệ thống, nên bạn không thể lọc kết quả</string>
+    <string name="progress_no_topics">Không có chủ đề, nên bạn không thể lọc kết quả</string>
+
+    <!-- Overall Fragment XML -->
+    <string name="radar_graph_desc">Biểu đồ radar toàn quá trình của bạn</string>
+    <string name="iv_read_radar_chart_desc">Nút giúp người dùng đọc biểu đồ radar</string>
+    <string name="iv_read_pie_chart_desc">Nút giúp người dùng đọc biểu đồ tròn</string>
+    <string name="should_improve_on">Bạn nên cải thiện:</string>
+    <!-- Overall Fragment code -->
+    <string name="radar_chart_data_label">Kết quả của bạn</string>
+    <string name="pie_chart_filter">Lọc Biểu Đồ Tròn</string>
+    <string name="pie_chart_overall_desc">Biểu đồ tròn toàn quá trình của bạn</string>
+    <string name="pie_chart_desc">Biểu đồ tròn cho quá trình của bạn trong khóa học:</string>
+
+    <string name="read_radar_chart_title">Cách Đọc Biểu Đồ Radar</string>
+    <string name="read_radar_chart_msg">Biểu đồ radar thể hiện số điểm trung bình trong mỗi khóa
+        học có trong ứng dụng (dưới dạng phần trăm).\n\nVí dụ: Nếu bạn đạt 96% trong khóa \"Grammar\", nghĩa
+        rằng số điểm trung bình của bạn trong khóa \"Grammar\" là 9.6 / 10.0</string>
+    <string name="read_pie_chart_title">Cách Đọc Biểu Đồ Tròn</string>
+    <string name="read_pie_chart_msg">Biểu đồ tròn thể hiện mỗi khóa học đóng góp bao nhiêu trong
+        toàn khóa, hoặc mỗi chủ đề đóng góp bao nhiêu trong 1 khóa học cụ thể.\n\nVí dụ: Trong khóa \"Grammar\",
+        có 3 chủ đề (t1, t2, and t3); t1 góp 50%, t2 góp 25% và t3 góp 25%, nghĩa rằng điểm trung
+        bình của bạn ở chủ đề t1 là cao nhất, và điểm trung bình trong t2 và t3 là như nhau</string>
+</resources>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_black"
+    android:padding="8dp"
+    tools:context=".ui.fragments.quiz.choosequiz.ChooseQuizByTopicFragment">
+
+    <TextView
+        android:id="@+id/tv_do_ordered_quiz_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_choose_topic_based_test"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_star_1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/star"
+        android:textAlignment="center"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_course"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_choose_course" />
+
+    <TextView
+        android:id="@+id/tv_choose_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_choose_course"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_star_1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_do_ordered_quiz_home" />
+
+    <ImageView
+        android:id="@+id/iv_choose_course_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/iv_course_help_icon_desc"
+        android:focusable="true"
+        android:src="@drawable/ic_help"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_course"
+        app:layout_constraintStart_toEndOf="@+id/tv_choose_course"
+        app:layout_constraintTop_toTopOf="@+id/tv_choose_course"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Spinner
+        android:id="@+id/spinner_choose_course"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_spinner"
+        android:contentDescription="@string/spinner_course_content_desc"
+        android:popupBackground="@drawable/bg_spinner"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_course"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/iv_dropdown_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/iv_drop_down_desc"
+        android:src="@drawable/ic_drop_down"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_choose_course"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_choose_course"
+        app:layout_constraintTop_toTopOf="@+id/spinner_choose_course" />
+
+    <TextView
+        android:id="@+id/tv_star_2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/star"
+        android:textAlignment="center"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_topic"
+        app:layout_constraintStart_toEndOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/tv_choose_topic" />
+
+    <TextView
+        android:id="@+id/tv_choose_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_choose_topic"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_star_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_do_ordered_quiz_home" />
+
+    <ImageView
+        android:id="@+id/iv_choose_topic_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/iv_topic_help_icon_desc"
+        android:focusable="true"
+        android:src="@drawable/ic_help"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_topic"
+        app:layout_constraintStart_toEndOf="@+id/tv_choose_topic"
+        app:layout_constraintTop_toTopOf="@+id/tv_choose_topic"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Spinner
+        android:id="@+id/spinner_choose_topic"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_spinner"
+        android:contentDescription="@string/spinner_topic_content_desc"
+        android:popupBackground="@drawable/bg_spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guideline14"
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_topic" />
+
+    <ImageView
+        android:id="@+id/iv_dropdown_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/iv_drop_down_desc"
+        android:src="@drawable/ic_drop_down"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_choose_topic"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_choose_topic"
+        app:layout_constraintTop_toTopOf="@+id/spinner_choose_topic" />
+
+    <TextView
+        android:id="@+id/tv_total_questions_in_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_total_questions_in_topic"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_show_total_questions"
+        app:layout_constraintEnd_toStartOf="@+id/tv_show_total_questions"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_show_total_questions" />
+
+    <TextView
+        android:id="@+id/tv_show_total_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_text_view"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_total_questions_in_topic"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_choose_topic"
+        tools:text="20" />
+
+    <Button
+        android:id="@+id/btn_start_ordered_quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/buttons"
+        android:text="@string/btn_start_test"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_show_total_questions"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+</androidx.constraintlayout.widget.ConstraintLayout>

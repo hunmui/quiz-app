@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_black"
+    android:padding="16dp"
+    tools:context=".ui.fragments.quiz.choosequiz.ChooseMixedQuizFragment">
+
+    <TextView
+        android:id="@+id/tv_do_mixed_quiz_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_mixed_quiz"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_star_3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/star"
+        android:textAlignment="center"
+        android:textColor="@color/dark_red"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_quantity"
+        app:layout_constraintStart_toEndOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/tv_choose_quantity" />
+
+    <TextView
+        android:id="@+id/tv_choose_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/tv_choose_quantity"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_star_3"
+        app:layout_constraintTop_toBottomOf="@+id/tv_do_mixed_quiz_home" />
+
+    <ImageView
+        android:id="@+id/iv_choose_quantity_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:contentDescription="@string/iv_quantity_help_icon_desc"
+        android:focusable="true"
+        android:src="@drawable/ic_help"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_quantity"
+        app:layout_constraintStart_toEndOf="@+id/tv_choose_quantity"
+        app:layout_constraintTop_toTopOf="@+id/tv_choose_quantity"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Spinner
+        android:id="@+id/spinner_choose_quantity"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_spinner"
+        android:contentDescription="@string/spinner_quantity_content_desc"
+        android:dropDownVerticalOffset="16dp"
+        android:popupBackground="@drawable/bg_spinner"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toEndOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_quantity"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/iv_dropdown_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/iv_drop_down_desc"
+        android:src="@drawable/ic_drop_down"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_choose_quantity"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_choose_quantity"
+        app:layout_constraintTop_toTopOf="@+id/spinner_choose_quantity" />
+
+    <Button
+        android:id="@+id/btn_start_mixed_quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/buttons"
+        android:text="@string/btn_start_test"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_choose_quantity" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+</androidx.constraintlayout.widget.ConstraintLayout>

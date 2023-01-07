@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="self.eng.hocmaians.ui.fragments.quiz.choosequiz.HomeFragment"
+        android:label="@string/home_fragment_label"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_quizFragment"
+            app:destination="@id/quizFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="self.eng.hocmaians.ui.fragments.quiz.test.QuizFragment"
+        android:label="{topicName}"
+        tools:layout="@layout/fragment_quiz">
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+        <argument
+            android:name="topicId"
+            app:argType="integer" />
+        <argument
+            android:name="topicName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_quizFragment_to_reviewAnswersFragment"
+            app:destination="@id/reviewAnswersFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="quizAmount"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewAnswersFragment"
+        android:name="self.eng.hocmaians.ui.fragments.quiz.result.ReviewAnswersFragment"
+        android:label="@string/review_answers_fragment_label"
+        tools:layout="@layout/fragment_review_answers">
+        <argument
+            android:name="topicId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_reviewAnswersFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="doneTime"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_reviewAnswersFragment_to_graphFragment"
+            app:destination="@id/graphFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="whichFragment"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/graphFragment"
+        android:name="self.eng.hocmaians.ui.fragments.quiz.result.GraphFragment"
+        android:label="@string/graph_fragment_label"
+        tools:layout="@layout/fragment_graph">
+        <argument
+            android:name="topicId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_graphFragment_to_reviewAnswersFragment"
+            app:destination="@id/reviewAnswersFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="self.eng.hocmaians.ui.fragments.bookmark.BookmarksFragment"
+        android:label="@string/bookmarks_fragment_label"
+        tools:layout="@layout/fragment_bookmarks" />
+    <fragment
+        android:id="@+id/manageCoursesFragment"
+        android:name="self.eng.hocmaians.ui.fragments.manage.courses.ManageCoursesFragment"
+        android:label="@string/manage_courses_fragment_label"
+        tools:layout="@layout/fragment_manage_courses">
+        <action
+            android:id="@+id/action_manageCoursesFragment_to_manageTopicsFragment"
+            app:destination="@id/manageTopicsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageTopicsFragment"
+        android:name="self.eng.hocmaians.ui.fragments.manage.topics.ManageTopicsFragment"
+        android:label="@string/manage_topics_fragment_label"
+        tools:layout="@layout/fragment_manage_topics">
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_manageTopicsFragment_to_manageQuestionsFragment"
+            app:destination="@id/manageQuestionsFragment" />
+        <action
+            android:id="@+id/action_manageTopicsFragment_to_addEditTopicFragment"
+            app:destination="@id/addEditTopicFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageQuestionsFragment"
+        android:name="self.eng.hocmaians.ui.fragments.manage.questions.ManageQuestionsFragment"
+        android:label="@string/manage_questions_fragment_label"
+        tools:layout="@layout/fragment_manage_questions">
+        <argument
+            android:name="topicId"
+            app:argType="integer" />
+        <argument
+            android:name="topicName"
+            app:argType="string" />
+        <argument
+            android:name="courseName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_manageQuestionsFragment_to_addEditQuestionFragment"
+            app:destination="@id/addEditQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditTopicFragment"
+        android:name="self.eng.hocmaians.ui.fragments.manage.topics.AddEditTopicFragment"
+        android:label="@string/add_edit_topic_fragment_label"
+        tools:layout="@layout/fragment_add_edit_topic">
+        <argument
+            android:name="topicAction"
+            app:argType="string" />
+        <argument
+            android:name="topic"
+            app:argType="self.eng.hocmaians.data.entities.Topic"
+            app:nullable="true" />
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditQuestionFragment"
+        android:name="self.eng.hocmaians.ui.fragments.manage.questions.AddEditQuestionFragment"
+        android:label="@string/add_edit_question_fragment_label"
+        tools:layout="@layout/fragment_add_edit_question">
+        <argument
+            android:name="questionAction"
+            app:argType="string" />
+        <argument
+            android:name="question"
+            app:argType="self.eng.hocmaians.data.entities.Question"
+            app:nullable="true" />
+        <argument
+            android:name="topicId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/progressHomeFragment"
+        android:name="self.eng.hocmaians.ui.fragments.progress.ProgressHomeFragment"
+        android:label="@string/progress_fragment_label"
+        tools:layout="@layout/fragment_progress_home" />
+</navigation>

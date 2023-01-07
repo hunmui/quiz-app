@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../Android/Sdk/platforms/android-30/data/res/layout/simple_list_item_1.xml" value="0.33541666666666664" />
+        <entry key="../../Android/Sdk/platforms/android-30/data/res/layout/simple_spinner_dropdown_item.xml" value="0.33541666666666664" />
+        <entry key="../../Android/Sdk/platforms/android-30/data/res/layout/simple_spinner_item.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_help.xml" value="0.29444444444444445" />
+        <entry key="app/src/main/res/drawable/back_with_border.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/bg_dropdown.xml" value="0.2935185185185185" />
+        <entry key="app/src/main/res/drawable/bg_spinner.xml" value="0.2935185185185185" />
+        <entry key="app/src/main/res/drawable/bg_text_view.xml" value="0.2462962962962963" />
+        <entry key="app/src/main/res/drawable/buttons.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/drawable/cardview_with_border.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/drawable/edit_text_bg.xml" value="0.2361111111111111" />
+        <entry key="app/src/main/res/drawable/gradient_color.xml" value="0.21944444444444444" />
+        <entry key="app/src/main/res/drawable/ic__fab_add.xml" value="0.21944444444444444" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/drawable/ic_add_bookmark.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/drawable/ic_bookmark_added.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/drawable/ic_bookmark_added_red.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/drawable/ic_caution.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/drawable/ic_correct_option.xml" value="0.29444444444444445" />
+        <entry key="app/src/main/res/drawable/ic_drop_down.xml" value="0.29444444444444445" />
+        <entry key="app/src/main/res/drawable/ic_edit.xml" value="0.21944444444444444" />
+        <entry key="app/src/main/res/drawable/ic_help.xml" value="0.29444444444444445" />
+        <entry key="app/src/main/res/drawable/ic_option.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/ic_quiz.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/drawable/ic_warning.xml" value="0.21944444444444444" />
+        <entry key="app/src/main/res/drawable/style_spinner.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/drawable/tab_indicator_bg.xml" value="0.2462962962962963" />
+        <entry key="app/src/main/res/layout-land/fragment_bookmarks.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_choose_mixed_quiz.xml" value="0.22" />
+        <entry key="app/src/main/res/layout-land/fragment_choose_quiz_by_topic.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_detail_score.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout-land/fragment_each_quiz.xml" value="0.5760286225402504" />
+        <entry key="app/src/main/res/layout-land/fragment_graph.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_home.xml" value="0.2072398190045249" />
+        <entry key="app/src/main/res/layout-land/fragment_overall.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_progress.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_progress_home.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout-land/fragment_quiz.xml" value="0.22" />
+        <entry key="app/src/main/res/layout-land/fragment_review_answers.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/custom_marker_view.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/drawer_menu_header.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_answer_check.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_answer_review.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/each_attempt.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/each_bookmark.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_course_and_topic.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/each_dropdown_item.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_hocmai_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_spinner_item.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/each_spinner_text_view.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_add_course.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_add_edit_course.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_add_edit_question.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_add_edit_topic.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_add_question.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_add_stuff.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_add_stuff_home.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_add_topic.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_bookmarks.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_choose_mixed_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_choose_quiz_by_topic.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_detail_score.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_do_mixed_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_do_ordered_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_each_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_graph.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_guide_auto_trans.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_guide_graph.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_guide_help.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_guide_home.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_guide_swipe.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_guide_warning.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_hocmai_home.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_hocmai_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_hocmai_review_answers.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_manage_course.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_manage_courses.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_manage_questions.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_manage_topics.xml" value="0.3289070480081716" />
+        <entry key="app/src/main/res/layout/fragment_overall.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_progress.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_progress_home.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_quiz.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_review_answers.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/radar_marker_view.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/spinner_display_text.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/menu/drawer_nav_menu.xml" value="0.33541666666666664" />
+        <entry key="app/src/main/res/menu/options_menu.xml" value="0.33541666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">English Quiz</string>
+
+    <!-- Nav graph label -->
+    <string name="home_fragment_label">Choose Test</string>
+    <string name="review_answers_fragment_label">Your Result</string>
+    <string name="graph_fragment_label">Your Progress</string>
+    <string name="bookmarks_fragment_label">Bookmarks</string>
+    <string name="manage_courses_fragment_label">Manage Courses</string>
+    <string name="manage_topics_fragment_label">Manage Topics</string>
+    <string name="add_edit_topic_fragment_label">Add/Edit Topic</string>
+    <string name="manage_questions_fragment_label">Manage Questions</string>
+    <string name="add_edit_question_fragment_label">Add/Edit Question</string>
+    <string name="progress_fragment_label">Your Progress</string>
+
+    <!-- Drawer Navigation menu -->
+    <string name="make_english_easier">Make 990 TOEIC, 9 IELTS, 120 TOEFL easier!</string>
+    <string name="do_quiz">Tests</string>
+    <string name="bookmarked_questions">Bookmarks</string>
+    <string name="manage">Manage</string>
+    <string name="progress">Progress</string>
+
+    <!-- Common strings -->
+    <string name="iv_drop_down_desc">Dropdown icon</string>
+    <string name="unknown_error_occurred">An unknown error occurred</string>
+    <string name="star" translatable="false">*</string>
+    <string name="required_field">*Required</string>
+    <string name="optional_field">(Optional)</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="close">Close</string>
+
+    <!-- Home strings -->
+    <string name="choose_test_by_topic_tab">Topic Based</string>
+    <string name="choose_mixed_test_tab">Mix</string>
+
+    <!-- Choose test by topic strings (XML)-->
+    <string name="tv_choose_topic_based_test">Test By Topic</string>
+    <string name="tv_choose_course">Pick a course</string>
+    <string name="iv_course_help_icon_desc">Choose course helper icon</string>
+    <string name="spinner_course_content_desc">Choose course drop down list</string>
+    <string name="tv_choose_topic">Pick a topic</string>
+    <string name="iv_topic_help_icon_desc">Choose topic helper icon</string>
+    <string name="spinner_topic_content_desc">Choose topic dropdown list</string>
+    <string name="tv_total_questions_in_topic">Total questions</string>
+    <string name="btn_start_test">Start</string>
+    <!-- Choose test by topic strings (Code)-->
+    <string name="no_courses_to_start_test">Since there are no courses, you cannot do the test!</string>
+    <string name="no_topics_to_start_test">Since there are no topics, you cannot do the test!</string>
+    <string name="pick_course_help_title">How To Pick A Course</string>
+    <string name="pick_choose_course_help">To do quizzes, you need to choose a course and a topic.\n\n
+        To choose a course, please select from the course list below. Have a high test score!
+    </string>
+    <string name="pick_topic_help_title">How To Pick A Topic</string>
+    <string name="pick_choose_topic_help">To choose a topic, please select from the topic list below.
+        Have a high test score!
+    </string>
+
+    <!-- Choose mixed test strings (XML) -->
+    <string name="choose_mixed_quiz">Mixed Quizzes</string>
+    <string name="tv_choose_quantity">Select quantity</string>
+    <string name="iv_quantity_help_icon_desc">Choose question quantity helper icon</string>
+    <string name="spinner_quantity_content_desc">Choose quantity dropdown list</string>
+    <!-- Choose mixed test strings (Code) -->
+    <string name="choose_quantity_help_title">How To Choose Question Quantity</string>
+    <string name="choose_quantity_help_msg">To do quizzes, you need to select quantity.\n\nTo pick
+        a quantity, please select from the quantity list below. Have a high test score!
+    </string>
+
+    <!-- quiz fragment strings (XML) -->
+    <string name="tv_done_quantity">Done:</string>
+    <string name="tv_course">Course:</string>
+    <string name="tv_topic">Topic:</string>
+    <string name="btn_submit_quiz">Submit</string>
+    <string name="btn_check_answers">Check answers</string>
+    <string name="btn_back_to_quiz">Back to quizzes</string>
+    <string name="tv_question_number">Question No.</string>
+    <string name="tv_answer_status">Your answer</string>
+    <!-- Each Quiz Fragment (XML) -->
+    <string name="long_text" translatable="false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+        eaque et, obcaecati sint sunt tenetur ut veniam voluptates. Exercitationem in ipsam iusto
+        maxime nam neque nisi officia reprehenderit totam veniam?</string>
+    <string name="rb_option_1">Option 1</string>
+    <string name="rb_option_2">Option 2</string>
+    <string name="rb_option_3">Option 3</string>
+    <string name="rb_option_4">Option 4</string>
+    <!-- quiz fragment strings (Code) -->
+    <string name="exit_dialog_title">Stop The Test?</string>
+    <string name="exit_dialog_message">Do you actually want to stop the test here?</string>
+    <string name="btn_stop_test">Stop test</string>
+    <string name="oops_dialog_title">What Happened???</string>
+    <string name="oops_dialog_message">Why did you stop the test? Your progress is now lost.
+        Please excuse us, this is a  ̶b̶u̶g̶ functionality which we developed.</string>
+
+    <!-- Review answers strings (XML) -->
+    <string name="total_questions">Total Questions:</string>
+    <string name="total_correct_answers">Total Correct:</string>
+    <string name="done_date">Done Date:</string>
+    <string name="score">Score:</string>
+    <string name="iv_review_help_desc">Reading result help icon</string>
+    <string name="tv_question_order">No.</string>
+    <string name="tv_your_answer">You chose</string>
+    <string name="tv_our_answer">Correct one</string>
+    <string name="btn_graph_desc">To graph</string>
+    <!-- Each Answer Review (XML)-->
+    <string name="question_number" translatable="false">1</string>
+    <string name="not_yet_answered">Not answered</string>
+    <string name="correct_answer" translatable="false">C</string>
+    <string name="bookmark_this_question">Bookmark this question?</string>
+    <string name="iv_bookmark_desc">Bookmark icon</string>
+    <string name="iv_option_desc">Choose answer icon</string>
+    <string name="explanation">Explanation</string>
+    <!-- Review answers strings (Code) -->
+    <string name="txt_review_answers_help_title">How To Read Your Result</string>
+    <string name="txt_review_answers_help_message">Below is your result:\n\n* If you answer is
+        correct, then it will have the color green, and we do not show correct answer.\n\n
+        * If your answer is incorrect, then it will have the color red, and correct answer will be
+        display with the color green.\n\n* To see question detail and explanation, please choose a
+        row that you want to see more.
+    </string>
+    <string name="bookmark_added">Bookmark added</string>
+    <string name="bookmark_not_added">Bookmark NOT added</string>
+    <string name="invalid_answer_index">Invalid answer</string>
+
+    <!-- Graph fragment strings (XML) -->
+    <string name="tv_read_graph_helper">How To Read Graph</string>
+    <string name="tv_graph_desc_1">Below is a line graph about your progress, belong to topic:</string>
+    <string name="tv_graph_desc_2">, in course:</string>
+    <string name="attempts_detail">Attempts Detail</string>
+    <string name="tv_attempt_order">No.</string>
+    <string name="tv_attempts_detail_date">Done date</string>
+    <string name="tv_attempts_detail_score">Score</string>
+    <!-- Graph fragment strings (Code) -->
+    <string name="read_graph_helper_message">1, To know result of a specific attempt, please
+        choose the corresponding point in the graph.\n\n2, The point you just pressed, shows a small
+        message including 2 numbers: attempt number, and your score.\nExample: \"3: 6.9\" means 3rd
+        attempt, score is 6.9\n\n3, After that, you can scroll down to attempt list to know the
+        detail of that specific attempt.
+    </string> <string name="data_set_name">Result</string>
+    <string name="upper_y_limit">Highest</string>
+    <string name="lower_y_limit">Lowest</string>
+
+    <!-- Bookmarks Fragment strings (XML) -->
+    <string name="tv_bookmarks_filter">Filter bookmarks by topic</string>
+    <string name="iv_filter_bookmark_desc">Filter bookmark helper icon</string>
+    <string name="btn_filter">Filter</string>
+    <string name="no_bookmark_found">There Is No Bookmark</string>
+    <string name="all_bookmarks">All Bookmarks</string>
+    <string name="tv_show_explanation">Show explanation</string>
+    <!-- Bookmarks Fragment strings (Code) -->
+    <string name="filter_bookmarks_help_title">How To Filter Bookmarked Questions</string>
+    <string name="visible_filter_bookmarks_help_msg">* You can hide/show bookmark filter layout by
+        pressing the line: \"Filter bookmark based on topic\".\n\n* To filter bookmarked questions
+        based on topic, please select a course and a topic from the two dropdown lists below.
+    </string>
+    <string name="hidden_filter_bookmarks_help_msg">You can hide/show bookmark filter layout by
+        pressing the line: \"Filter bookmark based on topic\".</string>
+    <string name="bookmarks_1">Bookmarks in topic:</string>
+    <string name="bookmarks_2">in course:</string>
+    <string name="no_courses_to_filter">There are no courses, so you cannot filter bookmarks</string>
+    <string name="no_topics_to_filter">There are no topic, so you cannot filter bookmarks</string>
+    <string name="bookmark_removed_success">Bookmark removed successfully</string>
+    <string name="tv_hide_explanation">Close explanation</string>
+
+    <!-- Manage courses strings (XML) -->
+    <string name="tv_all_courses">All Courses</string>
+    <!-- Manage courses strings (Code) -->
+    <string name="cannot_manage_practice_test">You do not have the permission to manage
+        Practice Test course</string>
+
+    <!-- Manage topics fragment (XML) -->
+    <string name="tv_all_topics">All Topics In Course:</string>
+    <string name="iv_edit_course_topic_desc">Edit topic icon</string>
+    <string name="fab_add_topic_desc">Add topic icon</string>
+
+    <!-- Add, edit topic fragment strings (XML) -->
+    <string name="tv_add_topic">Add Topic</string>
+    <string name="topic_name_hint">Topic name*</string>
+    <string name="tv_delete_topic">Delete Topic</string>
+    <!-- Add, edit topic fragment strings (Code) -->
+    <string name="topic_name_exceed_max_character">Topic name must NOT exceed 100 characters.</string>
+    <string name="tv_edit_topic">Edit Topic</string>
+    <string name="delete_topic_dialog_title">Delete This Topic?</string>
+    <string name="delete_topic_dialog_message">Do you really want to delete this topic? Delete this
+        topic will erase all questions, the corresponding answers and also scores that are associated
+        with the deleted topic.
+    </string>
+    <string name="add_topic_successfully">Add topic successfully</string>
+    <string name="edit_topic_successfully">Edit topic successfully</string>
+    <string name="delete_topic_successfully">Delete topic successfully</string>
+
+    <!-- Manage questions fragment (XML) -->
+    <string name="no_questions_in_this_topic">You have not added any question in this topic!</string>
+    <string name="tv_all_questions_1">All Questions In Topic:</string>
+    <string name="tv_all_questions_2">, In Course:</string>
+    <string name="fab_add_question_desc">Add question icon</string>
+
+    <!-- Add, edit questions fragment strings (XML) -->
+    <string name="tv_add_question">Add Question</string>
+    <string name="question_hint">Question*</string>
+    <string name="first_option_hint">Option 1*</string>
+    <string name="second_option_hint">Option 2*</string>
+    <string name="third_option_hint">Option 3*</string>
+    <string name="fourth_option_hint">Option 4*</string>
+    <string name="correct_answer_hint">Correct answer*</string>
+    <string name="explanation_hint">Explanation</string>
+    <string name="btn_delete_question">Delete question</string>
+    <!-- Add, edit questions fragment strings (Code) -->
+    <string name="add_correct_answer_msg">Correct answer is only in {a, b, c, d} in lowercase, or {A, B, C, D} in uppercase</string>
+    <string name="tv_edit_question">Edit Question</string>
+    <string name="delete_question_dialog_title">Delete This Question?</string>
+    <string name="delete_question_dialog_message">Do you really want to delete this question? Delete this
+        question will erase your corresponding answer in every previous attempts, and you cannot review the
+        question that you deleted.
+    </string>
+    <string name="add_question_successfully">Add question successfully</string>
+    <string name="edit_question_successfully">Edit question successfully</string>
+    <string name="delete_question_successfully">Delete question successfully</string>
+
+    <!-- Progress Home code (code) -->
+    <string name="detail_score_tab">Detail Score</string>
+    <string name="overall_tab">Overall</string>
+
+    <!-- Detail Score Fragment XML -->
+    <string name="btn_filter_result">Filter Results</string>
+    <string name="btn_back">Back</string>
+    <string name="tv_filter_result_by">Filter result by?</string>
+    <string name="filter_by_overall">Overall</string>
+    <string name="filter_by_mixed_quiz">Mixed Quiz</string>
+    <string name="filter_by_course">Course</string>
+    <string name="filter_by_topic">Topic</string>
+    <string name="tv_filter">Filter Your Results</string>
+    <string name="overall_score">Your average score in this course/topic is:</string>
+    <!-- Detail Score Fragment Code -->
+    <string name="graph_desc_when_no_data">Please click on \"Filter Your Results\" to get your results</string>
+    <string name="graph_desc_overall">Your overall results progress graph</string>
+    <string name="have_not_done_any_question">You have not done any questions in this course/topic</string>
+    <string name="graph_desc_by_course">Progress graph for your results in course:</string>
+    <string name="graph_desc_by_topic_1">Progress graph for your results in topic:</string>
+    <string name="graph_desc_by_topic_2">, belongs to course:</string>
+    <string name="progress_no_courses">There are no courses in database, so you cannot filter your progress</string>
+    <string name="progress_no_topics">There are no topics, so you cannot filter your progress</string>
+
+    <!-- Overall Fragment XML -->
+    <string name="radar_graph_desc">Radar chart for your overall result</string>
+    <string name="iv_read_radar_chart_desc">Read radar chart helper icon</string>
+    <string name="iv_read_pie_chart_desc">Read pie chart helper icon</string>
+    <string name="should_improve_on">You should improve on:</string>
+    <!-- Overall Fragment code -->
+    <string name="radar_chart_data_label">Your Result</string>
+    <string name="pie_chart_filter">Filter Pie Chart</string>
+    <string name="pie_chart_overall_desc">Pie chart for your overall result</string>
+    <string name="pie_chart_desc">Pie chart for your result in course:</string>
+    <string name="read_radar_chart_title">How To Read Radar Chart</string>
+    <string name="read_radar_chart_msg">Radar chart shows your average score in each course that is
+        available in the application (in percentage).\n\nExample: If you get 96% on course: \"Grammar\", that
+        means your average score in \"Grammar\" is 9.6 / 10.0</string>
+    <string name="read_pie_chart_title">How To Read Pie Chart</string>
+    <string name="read_pie_chart_msg">Pie chart shows how much each course contributes to the
+        overall, or how much each topic contributes to a specific course. Example: In course \"Grammar\",
+        there are 3 topics (t1, t2, and t3); t1 contributes 50%, t2 contributes 25% and t3
+        contribute 25%, that means your average score in t1 is the highest, and your average scores
+        in t2 and t3 are equal</string>
+</resources>
