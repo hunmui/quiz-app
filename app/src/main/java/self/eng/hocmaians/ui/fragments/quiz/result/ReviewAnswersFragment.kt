@@ -18,7 +18,7 @@ import self.eng.hocmaians.util.Constants.MAX_SCORE
 import self.eng.hocmaians.util.Status
 
 /**
- * Get current recycler view item position
+ * Nhận vị trí mục xem trình tái chế hiện tại
  *
  * stackoverflow.com/questions/38247602/android-how-can-i-get-current-positon-on-recyclerview-that-user-scrolled-to-item
  */
@@ -57,12 +57,12 @@ class ReviewAnswersFragment : Fragment(R.layout.fragment_review_answers) {
             binding.btnToGraph.visibility = View.GONE
         }
 
-        // get user score and set up some text
+        // nhận điểm người dùng và thiết lập một số văn bản
         viewModel.getUserScore(args.doneTime).observe(viewLifecycleOwner) { score ->
             setupSomeText(score)
         }
 
-        // help user to read review
+        //giúp người dùng đọc đánh giá
         binding.ivReviewHelp.setOnClickListener {
             // show help dialog
             CommonMethods.showHelpDialog(
@@ -81,7 +81,7 @@ class ReviewAnswersFragment : Fragment(R.layout.fragment_review_answers) {
     }
 
     /**
-     * Observe update question bookmark status
+     * Quan sát trạng thái đánh dấu câu hỏi cập nhật
      */
     private fun subscribeToObserver() {
         viewModel.updateBookmark.observe(viewLifecycleOwner) {
@@ -114,7 +114,7 @@ class ReviewAnswersFragment : Fragment(R.layout.fragment_review_answers) {
     }
 
     /**
-     * Set up adapter for reviewing answer recyclerView.
+     * Thiết lập bộ điều hợp để xem lại câu trả lời reccyclerView.
      */
     private fun loadReviewAdapter() {
         reviewAnswersAdapter = ReviewAnswerAdapter(args.whichFragment)
@@ -132,9 +132,9 @@ class ReviewAnswersFragment : Fragment(R.layout.fragment_review_answers) {
     }
 
     /**
-     * Set up 4 text view, including: total questions, total correct, overall score and done date
+     * Thiết lập 4 chế độ xem văn bản gồm: tổng câu hỏi, tổng đúng, tổng điểm và ngày làm
      *
-     * @param score user score object
+     * @param score đối tượng điểm người dùng
      */
     private fun setupSomeText(score: Score) {
         binding.apply {

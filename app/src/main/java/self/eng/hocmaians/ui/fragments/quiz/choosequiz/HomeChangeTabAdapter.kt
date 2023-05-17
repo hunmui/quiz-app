@@ -5,9 +5,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import self.eng.hocmaians.util.Constants.HOME_TAB_LAYOUT_NUMBER
 
 /**
- * ViewPager2 Adapter, handling changing 2 tabs: Choose Quiz By Topic and Choose Mixed Quiz Fragment
+ * ViewPager2 Adapter, xử lý thay đổi 2 tab: Choose Quiz By Topic và Choose Mixed Quiz Fragment
  *
- * @param fragment host fragment which contains the viewPager2 (HomeFragment)
+ * @param Fragment Host Fragment chứa viewPager2 (HomeFragment)
  */
 class HomeChangeTabAdapter(
     fragment: Fragment

@@ -11,8 +11,8 @@ import self.eng.hocmaians.util.CommonMethods
 
 class AttemptsAdapter : RecyclerView.Adapter<AttemptsAdapter.AttemptViewHolder>() {
 
-    // this is a variable that has the type of a function (lambda function)
-    // that function takes an Score as argument, and return nothing
+    // đây là một biến có kiểu hàm (hàm lambda)
+    // hàm đó lấy Score làm đối số và không trả về gì cả
     private var onScoreClickListener: ((Score) -> Unit)? = null
 
     fun setOnScoreClickListener(listener: (Score) -> Unit) {

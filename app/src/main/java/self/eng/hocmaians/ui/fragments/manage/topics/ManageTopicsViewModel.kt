@@ -23,14 +23,14 @@ class ManageTopicsViewModel @Inject constructor(
     private val repository: IRepository
 ) : ViewModel() {
 
-    // methods get live data from db for manage topics related fragments to observe
+    // các phương thức lấy dữ liệu trực tiếp từ db để quản lý các đoạn liên quan đến chủ đề cần quan sát
     fun getTopicsByCourse(courseId: Int): LiveData<List<Topic>> =
         repository.getTopicsBasedOnCourse(courseId = courseId)
 
     fun getTopicsNamesByCourse(courseId: Int): LiveData<List<String>> =
         repository.getTopicsNamesBasedOnCourse(courseId = courseId)
 
-    // insert, update, delete topic for manage topics related fragments to observe
+    // chèn, cập nhật, xóa chủ đề để quản lý các đoạn liên quan đến chủ đề cần quan sát
     private val _insertTopicStatus = MutableLiveData<Event<Resource<Topic>>>()
     val insertTopicStatus: LiveData<Event<Resource<Topic>>> = _insertTopicStatus
 
@@ -41,10 +41,10 @@ class ManageTopicsViewModel @Inject constructor(
     val deleteTopicStatus: LiveData<Event<Resource<String>>> = _deleteTopicStatus
 
     /**
-     * Post value when there's an error when adding OR updating a topic
+     * Đăng giá trị khi có lỗi khi thêm HOẶC cập nhật chủ đề
      *
-     * @param action is the action Add topic, or Edit topic
-     * @param errorMessage the error message to post
+     * @param action là hành động Thêm chủ đề, hoặc Sửa chủ đề
+     * @param errorMessage báo lỗi cần đăng
      */
     private fun insertUpdateTopicError(action: String, errorMessage: String) {
         if (action == ACTION_ADD_TOPIC) {
@@ -69,11 +69,11 @@ class ManageTopicsViewModel @Inject constructor(
     }
 
     /**
-     * Insert topic
+     * Chèn chủ đề
      *
-     * @param topicName topic name
-     * @param existingTopicNames a list of already existed topic names in the db
-     * @param courseId which course does this topic belong to
+     * @param topicName tên chủ đề
+     * @param existingTopicNames danh sách các tên chủ đề đã tồn tại trong db
+     * @param courseId chủ đề này thuộc về khóa học nào
      */
     fun insertTopic(topicName: String, existingTopicNames: List<String>, courseId: Int) {
         if (topicName.isBlank()) {
@@ -120,11 +120,11 @@ class ManageTopicsViewModel @Inject constructor(
     }
 
     /**
-     * Update topic
+     * Cập nhật chủ đề
      *
-     * @param topicId which topic to be updated
-     * @param topicName topic name to update
-     * @param existingTopicNames a list of already existed topic names to avoid duplicate
+     * @param topicId chủ đề nào sẽ được cập nhật
+     * @param topicName tên chủ đề cần cập nhật
+     * @param existingTopicNames danh sách các tên chủ đề đã tồn tại để tránh trùng lặp
      */
     fun updateTopic(topicId: Int, topicName: String, existingTopicNames: List<String>) {
         if (topicName.isBlank()) {
@@ -159,10 +159,10 @@ class ManageTopicsViewModel @Inject constructor(
     }
 
     /**
-     * Delete topic and its associated stuff (questions, answers and scores). The post the result
-     * so that AddEditTopicFragment can observe
+     * Xóa chủ đề và nội dung liên quan (câu hỏi, câu trả lời và điểm số). Đăng kết quả
+     * để AddEditTopicFragment có thể quan sát
      *
-     * @param topic the topic to delete
+     * @param topic chủ đề cần xóa
      */
     fun deleteTopic(topic: Topic) {
         viewModelScope.launch {

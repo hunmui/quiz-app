@@ -67,19 +67,19 @@ class ReviewAnswerAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         /**
-         * Binding views
+         * Chế độ xem ràng buộc
          *
-         * @param questionNumber question number that human can read (means start from 1)
-         * @param userAnswer user answer in form of an integer
-         * @param question a whole question object
+         * @param questionNumber số câu hỏi mà con người có thể đọc (có nghĩa là bắt đầu từ 1)
+         * @param userAnswer câu trả lời của người dùng ở dạng số nguyên
+         * @param question câu hỏi cho toàn bộ đối tượng câu hỏi
          */
         fun bind(questionNumber: Int, userAnswer: Int, question: Question) {
             binding.apply {
 
                 var showExplanation = true
 
-                // if re-render exactly question position, then show explanation
-                // else hide explanation
+                // nếu re-render chính xác vị trí câu hỏi thì hiện giải thích
+                // khác ẩn lời giải thích
                 if (questionNumber - 1 == reRenderPos && showExplanation) {
                     explainLayout.visibility = View.VISIBLE
                 } else {
@@ -87,7 +87,7 @@ class ReviewAnswerAdapter(
                     explainLayout.visibility = View.GONE
                 }
 
-                // show OR hide explanation part
+                // hiện HOẶC ẩn phần giải thích
                 headerLayout.setOnClickListener {
                     showExplanation = !showExplanation
                     if (showExplanation) {
@@ -117,7 +117,7 @@ class ReviewAnswerAdapter(
                 var isBookmarked: Boolean
 
                 if (whichFragment == Constants.GRAPH_FRAGMENT) {
-                    // if coming from graph fragment,only show bookmark status
+                    // nếu đến từ đoạn biểu đồ, chỉ hiển thị trạng thái dấu trang
                     ivReviewAddBookmark.visibility = View.GONE
                     tvReviewAddBookmark.visibility = View.GONE
 
@@ -128,14 +128,14 @@ class ReviewAnswerAdapter(
                         QuizApplication.resource.getString(R.string.bookmark_not_added)
                     }
                 } else {
-                    // if coming from quiz fragment, allow user to add bookmark. Hide bookmark status
+                    // nếu đến từ đoạn câu hỏi, cho phép người dùng thêm dấu trang. Ẩn trạng thái dấu trang
                     ivReviewAddBookmark.visibility = View.VISIBLE
                     tvReviewAddBookmark.visibility = View.VISIBLE
 
                     tvIsBookmarkedYet.visibility = View.GONE
                 }
 
-                // change text and icon based on bookmark condition of the current question
+                // thay đổi văn bản và biểu tượng dựa trên điều kiện đánh dấu của câu hỏi hiện tại
                 if (question.isBookmark == QUESTION_BOOKMARKED) {
                     isBookmarked = true
                     whenBookmarked()

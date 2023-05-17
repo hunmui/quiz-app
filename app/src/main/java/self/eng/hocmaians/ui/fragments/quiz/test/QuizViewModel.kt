@@ -28,23 +28,23 @@ class QuizViewModel @Inject constructor(
     private var currentQuestionPos = 0
     var timestamp: Long = 0
 
-    // live data from db for Quiz Fragment to observe
+    // dữ liệu trực tiếp từ db cho Quiz Fragment để quan sát
     lateinit var questions: LiveData<List<Question>>
 
-    // list of answers for Quiz Fragment to observe
+    // danh sách các câu trả lời cho Quiz Fragment để quan sát
     private val answerList: MutableList<Int> = mutableListOf()
     private var _answers = MutableLiveData<List<Int>>()
     var answers: LiveData<List<Int>> = _answers
 
-    // saving answers and score state for Quiz Fragment to observe
+    // lưu câu trả lời và trạng thái điểm cho Quiz Fragment để quan sát
     private var _save = MutableLiveData<Event<Resource<String>>>()
     val save: LiveData<Event<Resource<String>>> = _save
 
     /**
-     * Which type of questions to get (by topic or mixed question)
+     * Loại câu hỏi nào sẽ nhận được (theo chủ đề hoặc câu hỏi hỗn hợp)
      *
-     * @param questionQuantity how many questions to get if coming from Choose Mixed Quiz Fragment
-     * @param topicId get questions from the chosen topic
+     * @param questionQuantity lượng bao nhiêu câu hỏi nhận được nếu đến từ Choose Mixed Quiz Fragment
+     * @param topicId nhận câu hỏi từ chủ đề đã chọn
      */
     fun getQuestions(questionQuantity: Int, topicId: Int) {
         questions = if (questionQuantity == ZERO_QUESTIONS) {
@@ -55,9 +55,9 @@ class QuizViewModel @Inject constructor(
     }
 
     /**
-     * Initialize all variables for Quiz Fragment (questionList, doneQuantity, currentQuestionPos)
+     * Khởi tạo tất cả các biến cho Quiz Fragment ( questionList, doneQuantity, currentQuestionPos)
      *
-     * @param questions list of questions that Quiz Fragment observed
+     * @param questions danh sách các câu hỏi mà Quiz Fragment quan sát được
      */
     fun initialize(questions: List<Question>) {
         questionList = questions
@@ -74,11 +74,11 @@ class QuizViewModel @Inject constructor(
     }
 
     /**
-     * When user answer a question.
+     * Khi người dùng trả lời một câu hỏi.
      *
-     * @param currentPosition current question (viewpager) position
-     * @param answerPosition user answer position (1, 2, 3, or 4)
-     * @return viewPager next page (could be next page or just stay at the current page)
+     * @param currentPosition vị trí hiện tại của câu hỏi (viewpager)
+     * @param answerPosition vị trí câu trả lời của người dùng (1, 2, 3 hoặc 4)
+     * @return viewPager trang tiếp theo (có thể là trang tiếp theo hoặc chỉ ở trang hiện tại)
      */
     fun onAnswerQuestion(
         currentPosition: Int,
@@ -92,14 +92,14 @@ class QuizViewModel @Inject constructor(
                 answerList[currentQuestionPos] = answerPosition
                 _answers.postValue(answerList)
 
-                // update the done quantity
+                // cập nhật số lượng đã hoàn thành
                 doneQuantity++
 
-                // move to next page of ViewPager2
+                // chuyển sang trang tiếp theo của ViewPager2
                 currentQuestionPos + 1
             }
             answerList[currentQuestionPos] != answerPosition -> {
-                // already answered, then update the answer
+                // đã trả lời, sau đó cập nhật câu trả lời
                 answerList[currentQuestionPos] = answerPosition
 
                 _answers.postValue(answerList)
@@ -112,10 +112,10 @@ class QuizViewModel @Inject constructor(
     }
 
     /**
-     * When user submit test. Save user answers, and score. If there is any error, post the result
-     * via _save
+     * Khi người dùng gửi bài kiểm tra. Lưu câu trả lời của người dùng và ghi điểm. Nếu có bất kỳ lỗi nào, hãy đăng kết quả
+     * thông qua _save
      *
-     * @param topicId topic id
+     * @param topicId id chủ đề
      */
     fun onSubmitTest(topicId: Int) {
         timestamp = System.currentTimeMillis()

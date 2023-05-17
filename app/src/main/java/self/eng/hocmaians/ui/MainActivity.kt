@@ -17,10 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    // in order to call findNavController() in onCreate()
+    // để gọi findNavController() trong onCreate()
     private lateinit var navController: NavController
 
-    // config the app bar
+    // cấu hình thanh ứng dụng
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
 
-        // making homeFragment, and searchFragment as top level destinations
-        // and get the hamburger icon for the drawerLayout
+        // tạo homeFragment và searchFragment làm đích cấp cao nhất
+        // và lấy icon hamburger cho DrawerLayout
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment,
@@ -45,24 +45,24 @@ class MainActivity : AppCompatActivity() {
             binding.drawerLayoutMainActivity
         )
 
-        // replace ActionBar with our Toolbar
+        // thay thế ActionBar bằng Thanh công cụ
         setSupportActionBar(binding.toolbar)
-        // connect ActionBar (now is Toolbar) to NavController
+        // kết nối ActionBar (nay là Toolbar) với NavController
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // binding navigation drawer to nav graph
+        // liên kết ngăn điều hướng với biểu đồ điều hướng
         binding.apply {
             navView.setupWithNavController(navController)
 
-            // display icon image properly
+            // hiển thị đúng hình icon
             navView.itemIconTintList = null
         }
     }
 
     /**
-     * Handles the Up button in ActionBar
+     * Xử lý nút Lên trong ActionBar
      *
-     * @return true if navigation was successful, else call the super constructor
+     * @return true nếu điều hướng thành công, nếu không hãy gọi siêu hàm tạo
      */
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

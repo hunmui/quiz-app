@@ -26,18 +26,18 @@ class ReviewAnswersViewModel @Inject constructor(
     // variable for ReviewAnswersFragment
     lateinit var questionAnswerList: List<AnswerAndQuestion>
 
-    // live data from db for ReviewAnswersFragment to observe
+    // dữ liệu trực tiếp từ db để ReviewAnswersFragment quan sát
     lateinit var userAnswers: LiveData<List<AnswerAndQuestion>>
 
-    // update question bookmark state for ReviewAnswersFragment to observe
+    // cập nhật trạng thái đánh dấu câu hỏi để ReviewAnswersFragment quan sát
     private var _updateBookmark = MutableLiveData<Event<Resource<String>>>()
     val updateBookmark: LiveData<Event<Resource<String>>> = _updateBookmark
 
     /**
-     * get question and answer list
+     * nhận danh sách câu hỏi và câu trả lời
      *
-     * @param action get the list based on action from fragment
-     * @param timestamp the timestamp to get the list
+     * @param action lấy danh sách dựa trên hành động từ đoạn
+     * @param timestamp dấu thời gian để lấy danh sách
      */
     fun getQuestionAndAnswerList(action: Int, timestamp: Long) {
         userAnswers = when (action) {
@@ -47,16 +47,16 @@ class ReviewAnswersViewModel @Inject constructor(
     }
 
     /**
-     * When user click on bookmark icon. Update the question bookmark.
+     * Khi người dùng nhấp vào biểu tượng dấu trang. Cập nhật dấu trang câu hỏi.
      *
-     * @param isBookmarked is the question bookmarked or not
-     * @param questionsPosition update bookmark on which question
+     * @param isBookmarked là câu hỏi có được đánh dấu hay không
+     * @param questionĐánh dấu cập nhật vị trí cho câu hỏi nào
      */
     fun onUpdateBookmark(isBookmarked: Boolean, questionsPosition: Int) {
-        // get the question that is bookmarked
+        // lấy câu hỏi đã đánh dấu
         val question: Question = questionAnswerList[questionsPosition].question
 
-        // update isBookmark field
+        // cập nhật trường isBookmark
         val bookmark: Int = if (isBookmarked) {
             QUESTION_BOOKMARKED
         } else {
@@ -92,17 +92,17 @@ class ReviewAnswersViewModel @Inject constructor(
     }
 
     /**
-     * get user answers sort by user answer id
+     * nhận câu trả lời của người dùng sắp xếp theo id câu trả lời của người dùng
      *
-     * @param timestamp timestamp to get the list of user answer
+     * @param timestamp timestamp để lấy danh sách câu trả lời của người dùng
      */
     private fun getUserAnswersNoSorting(timestamp: Long): LiveData<List<AnswerAndQuestion>> =
         repository.getUserAnswersNoSorting(timestamp = timestamp)
 
     /**
-     * get user answers sort by question id
+     * nhận câu trả lời của người dùng sắp xếp theo id câu hỏi
      *
-     * @param timestamp timestamp to get the list of user answer
+     * @param timestamp timestamp để lấy danh sách câu trả lời của người dùng
      */
     private fun getUserAnswersOrderByQuestionId(
         timestamp: Long
@@ -110,18 +110,18 @@ class ReviewAnswersViewModel @Inject constructor(
         repository.getUserAnswersOrderByQuestionId(timestamp = timestamp)
 
     /**
-     * get user score based on timestamp
+     * nhận điểm người dùng dựa trên dấu thời gian
      *
-     * @param timestamp timestamp to get user score
+     * @param timestamp để lấy điểm của người dùng
      */
     fun getUserScore(timestamp: Long): LiveData<Score> =
         repository.getUserScore(timestamp = timestamp)
 
     /**
-     * update question bookmark
+     * cập nhật dấu trang câu hỏi
      *
-     * @param questionId which question to be updated
-     * @param bookmark is question bookmarked or not
+     * @param questionId câu hỏi nào sẽ được cập nhật
+     * @param bookmark có được đánh dấu câu hỏi hay không
      */
     private fun updateQuestionBookmark(questionId: Long, bookmark: Int) =
         viewModelScope.launch {

@@ -9,15 +9,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * This class contains all the methods which are used in the whole app
+ * Lớp này chứa tất cả các phương thức được sử dụng trong toàn bộ ứng dụng
  */
 object CommonMethods {
 
     /**
-     * Convert system time in millisecond to Formatted date: dd/MM/yyyy hh:mm a
+     * Chuyển đổi thời gian hệ thống tính bằng mili giây thành Ngày được định dạng: dd/MM/yyyy hh:mm a
      *
-     * @param milliseconds system time in millisecond
-     * @return the formatted date
+     * @param milliseconds thời gian hệ thống tính bằng mili giây
+     * @return ngày định dạng
      */
     fun millisToDateTime(milliseconds: Long): String {
 
@@ -39,11 +39,11 @@ object CommonMethods {
     }
 
     /**
-     * Calculate user score, display it in form of a string with the following format: x.x (7.8)
+     * Tính điểm người dùng, hiển thị dưới dạng chuỗi với định dạng sau: x.x (7.8)
      *
-     * @param totalCorrect user total correct answers
-     * @param totalQuestions total questions
-     * @return the formatted user score
+     * @param totalCorrect tổng số câu trả lời đúng của người dùng
+     * @param totalQuestions tổng số câu hỏi
+     * @return điểm người dùng đã định dạng
      */
     fun userScoreInString(totalCorrect: Int, totalQuestions: Int): String {
 
@@ -60,11 +60,11 @@ object CommonMethods {
     }
 
     /**
-     * Create an alert dialog to help user.
+     * Tạo hộp thoại cảnh báo để giúp người dùng.
      *
-     * @param context the context which needs an alert dialog
-     * @param title alert dialog title
-     * @param message alert dialog message
+     * @param context bối cảnh cần một hộp thoại cảnh báo
+     * @param title tiêu đề hộp thoại cảnh báo
+     * @param message Hộp thoại cảnh báo
      */
     fun showHelpDialog(context: Context, title: String, message: String) {
         MaterialAlertDialogBuilder(context)
@@ -77,10 +77,10 @@ object CommonMethods {
     }
 
     /**
-     * Convert user/correct answer in form of an Integer to Text
+     * Chuyển đổi người dùng/câu trả lời đúng ở dạng Số nguyên thành Văn bản
      *
-     * @param index user/correct answer in Integer
-     * @return user/correct answer in Text
+     * @param index user/correct trả lời đúng trong Số nguyên
+     * @return user/câu trả lời đúng trong Text
      */
     fun convertIndexToText(index: Int): String = when (index) {
         1 -> "A"

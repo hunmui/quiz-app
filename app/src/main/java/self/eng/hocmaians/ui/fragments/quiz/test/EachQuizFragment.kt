@@ -11,7 +11,7 @@ import self.eng.hocmaians.util.Constants.KEY_CURRENT_QUESTION
 import self.eng.hocmaians.util.Constants.UN_INITIALIZE_POSITION
 
 /**
- * Holder fragment for viewPager in QuizFragment.
+ * Holder fragment cho viewPager trong QuizFragment.
  */
 class EachQuizFragment : Fragment(R.layout.fragment_each_quiz) {
 
@@ -22,10 +22,10 @@ class EachQuizFragment : Fragment(R.layout.fragment_each_quiz) {
     private var questionPosition: Int = UN_INITIALIZE_POSITION
 
     /**
-     * Initialize variables for this fragment
+     * Khởi tạo các biến cho đoạn này
      *
-     * @param currentQuestion current question
-     * @param pos current question position
+     * @param currentQuestion câu hỏi hiện tại
+     * @param đặt vị trí câu hỏi hiện tại
      */
     fun init(currentQuestion: Question, pos: Int) {
         question = currentQuestion

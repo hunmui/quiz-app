@@ -15,29 +15,29 @@ class ChooseMixedQuizViewModel @Inject constructor(
     repository: IRepository
 ) : ViewModel() {
 
-    // variables for Choose Mixed Quiz Fragment
+    // các biến cho Choose Mixed Quiz Fragment
     var totalQuestionsInDb: Long = ZERO_QUESTIONS.toLong()
     var chosenQuantity: Int? = null
 
-    // live data from db for Choose Mixed Quiz Fragment to observe
+    // dữ liệu trực tiếp từ db cho Choose Mixed Quiz Fragment để quan sát
     val allQuestions: LiveData<Long> = repository.countAllQuestions()
 
-    // state of start test for Choose Mixed Quiz Fragment to observe
+    // trạng thái bắt đầu bài kiểm tra Chọn Đoạn bài kiểm tra hỗn hợp để quan sát
     private var _startTestStatus = MutableLiveData<Event<Resource<String>>>()
     val startTestStatus: LiveData<Event<Resource<String>>> = _startTestStatus
 
     /**
-     * When user choose question quantity to do test, update chosenQuantity.
+     * Khi người dùng chọn số lượng câu hỏi để kiểm tra, hãy cập nhật Số lượng đã chọn.
      *
-     * @param quantity user chosen quantity
+     * @param quantity người dùng đã chọn số lượng
      */
     fun onChooseQuantity(quantity: Int) {
         chosenQuantity = quantity
     }
 
     /**
-     * When user click Start test button. Check if all conditions to start test are met or not, then
-     * post value to the UI to observe
+     * Khi người dùng nhấp vào nút Bắt đầu kiểm tra. Kiểm tra xem tất cả các điều kiện để bắt đầu thử nghiệm có được đáp ứng hay không, sau đó
+     * đăng giá trị lên giao diện người dùng để quan sát
      */
     fun onStartTest() {
         chosenQuantity?.let {

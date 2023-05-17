@@ -35,7 +35,7 @@ class ManageCoursesFragment : Fragment(R.layout.fragment_manage_courses) {
             manageCoursesAdapter.differ.submitList(courses)
         }
 
-        // to manage topics fragment
+        // để quản lý fragment chủ đề
         manageCoursesAdapter.setOnCourseClickListener { courseId, courseName ->
 
             // production code
@@ -65,7 +65,7 @@ class ManageCoursesFragment : Fragment(R.layout.fragment_manage_courses) {
     }
 
     /**
-     * Set up adapters and few attributes for courses recycler view
+     * Thiết lập bộ điều hợp và một số thuộc tính cho chế độ xem trình tái chế khóa học
      */
     private fun setupAllCoursesRecyclerView() {
         manageCoursesAdapter = ManageCoursesAdapter()

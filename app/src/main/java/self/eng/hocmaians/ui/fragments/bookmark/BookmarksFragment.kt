@@ -47,7 +47,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
 
         setupBookmarkRecyclerView()
 
-        // get all bookmarks only if first time this fragment gets created
+        // chỉ nhận tất cả dấu trang nếu fragment này được tạo lần đầu tiên
         if (savedInstanceState == null) {
             viewModel.getAllBookmarks()
         }
@@ -62,7 +62,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
             }
         }
 
-        // load courses, and topic to spinner to filter bookmarks
+        // load courses, và topic vào spinner để lọc bookmarks
         viewModel.courses.observe(viewLifecycleOwner) { courses ->
             if (courses.isEmpty()) {
                 noCourses = true
@@ -119,7 +119,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * Observe filter bookmark state
+     * Quan sát trạng thái đánh dấu bộ lọc
      */
     private fun subscribeToObserver() {
         viewModel.filter.observe(viewLifecycleOwner) {
@@ -168,11 +168,11 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * Load all course from the Courses table in the database.
-     * Let the spinner display all courses, then load all topics which are corresponding to
-     * the chosen course.
+     * Tải tất cả khóa học từ bảng Khóa học trong cơ sở dữ liệu.
+     * Để spinner hiển thị tất cả các khóa học, sau đó tải tất cả các chủ đề tương ứng với
+     * khóa học đã chọn.
      *
-     * @param courses a list of all courses available
+     * @param courses danh sách tất cả các khóa học có sẵn
      */
     private fun loadCoursesToSpinner(courses: List<Course>) {
 
@@ -184,7 +184,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
         courseAdapter.setDropDownViewResource(R.layout.each_spinner_text_view)
         binding.spinnerChooseCourseFilter.adapter = courseAdapter
 
-        // load the chosen course in case of screen rotation
+        // tải khóa học đã chọn trong trường hợp xoay màn hình
         viewModel.chosenCourse?.let {
             binding.spinnerChooseCourseFilter.setSelection(courseAdapter.getPosition(it))
         }
@@ -215,11 +215,11 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * Loads all topics from the Topic table in the database, based on the chosen Course.
-     * Let the spinner display all the selected topics. Then show total number of questions that are
-     * available in the selected topic.
+     * Tải tất cả các chủ đề từ bảng Chủ đề trong cơ sở dữ liệu, dựa trên Khóa học đã chọn.
+     * Để spinner hiển thị tất cả các chủ đề đã chọn. Sau đó hiển thị tổng số câu hỏi đó là
+     * có sẵn trong chủ đề đã chọn.
      *
-     * @param topics a list of all topics based on the chosen course
+     * @param topics danh sách tất cả các chủ đề dựa trên khóa học đã chọn
      */
     private fun loadTopicsToSpinner(topics: List<Topic>) {
 
@@ -231,7 +231,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
         topicAdapter.setDropDownViewResource(R.layout.each_spinner_text_view)
         binding.spinnerChooseTopicFilter.adapter = topicAdapter
 
-        // load the chosen topic in case of screen rotation
+        // tải chủ đề đã chọn trong trường hợp xoay màn hình
         viewModel.chosenTopic.let {
             binding.spinnerChooseTopicFilter.setSelection(topicAdapter.getPosition(it))
         }
@@ -254,7 +254,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * Show filter bookmark section, and show the corresponding help message
+     * Hiển thị phần đánh dấu bộ lọc và hiển thị thông báo trợ giúp tương ứng
      */
     private fun showFilterLayout() {
         binding.apply {
@@ -271,7 +271,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * Hide filter bookmark section, and show the corresponding help message
+     * Ẩn phần đánh dấu bộ lọc và hiển thị thông báo trợ giúp tương ứng
      */
     private fun hideFilterLayout() {
         binding.apply {
@@ -288,7 +288,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * In Recycler view, swipe a bookmark to remove it from the list
+     * Trong chế độ xem Recycler, hãy vuốt một dấu trang để xóa nó khỏi danh sách
      */
     private fun swipeToDeleteBookMark() {
         val itemTouchHelperCallBack = object : ItemTouchHelper.SimpleCallback(
@@ -327,7 +327,7 @@ class BookmarksFragment : Fragment(R.layout.fragment_bookmarks) {
     }
 
     /**
-     * Set bookmark description, is it all bookmarks or it just belongs to a specific topic
+     * Đặt mô tả dấu trang, đó là tất cả dấu trang hay chỉ thuộc về một chủ đề cụ thể
      */
     private fun setBookmarksDescription() {
         val bookmarksText = if (viewModel.chosenCourse!= null && viewModel.chosenTopic != null) {

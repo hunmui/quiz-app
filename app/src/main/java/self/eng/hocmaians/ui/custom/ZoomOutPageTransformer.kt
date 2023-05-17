@@ -9,7 +9,7 @@ private const val MIN_SCALE = 0.85f
 private const val MIN_ALPHA = 0.5f
 
 /**
- * Custom animation for viewpager2
+ * Hoạt hình tùy chỉnh cho viewpager2
  */
 class ZoomOutPageTransformer : ViewPager2.PageTransformer {
 
@@ -19,11 +19,11 @@ class ZoomOutPageTransformer : ViewPager2.PageTransformer {
             val pageHeight = height
             when {
                 position < -1 -> { // [-Infinity,-1)
-                    // This page is way off-screen to the left.
+                    // Trang này nằm ngoài màn hình ở bên trái.
                     alpha = 0f
                 }
                 position <= 1 -> { // [-1,1]
-                    // Modify the default slide transition to shrink the page as well
+                    // Sửa đổi chuyển tiếp slide mặc định để thu nhỏ trang
                     val scaleFactor = max(MIN_SCALE, 1 - abs(position))
                     val verticalMargin = pageHeight * (1 - scaleFactor) / 2
                     val horizontalMargin = pageWidth * (1 - scaleFactor) / 2
@@ -33,16 +33,16 @@ class ZoomOutPageTransformer : ViewPager2.PageTransformer {
                         horizontalMargin + verticalMargin / 2
                     }
 
-                    // Scale the page down (between MIN_SCALE and 1)
+                    // Thu nhỏ trang (giữa MIN_SCALE và 1)
                     scaleX = scaleFactor
                     scaleY = scaleFactor
 
-                    // Fade the page relative to its size.
+                    // Làm mờ trang so với kích thước của nó.
                     alpha = (MIN_ALPHA +
                             (((scaleFactor - MIN_SCALE) / (1 - MIN_SCALE)) * (1 - MIN_ALPHA)))
                 }
                 else -> { // (1,+Infinity]
-                    // This page is way off-screen to the right.
+                    // Trang này nằm ngoài màn hình ở bên phải.
                     alpha = 0f
                 }
             }

@@ -11,7 +11,7 @@ import self.eng.hocmaians.databinding.EachCourseAndTopicBinding
 
 class ManageCoursesAdapter : RecyclerView.Adapter<ManageCoursesAdapter.ManageCoursesViewHolder>() {
 
-    // when user click an itemView (whole course), then pass courseId and courseName
+    // khi người dùng nhấp vào một itemView (toàn bộ khóa học), sau đó chuyển khóa courseId và courseName
     private var onCourseClickListener: ((Int, String) -> Unit)? = null
 
     fun setOnCourseClickListener(listener: (Int, String) -> Unit) {

@@ -22,25 +22,25 @@ class ChooseQuizByTopicViewModel @Inject constructor(
     private val repository: IRepository
 ) : ViewModel() {
 
-    // variable for Choose Quiz By Topic
+    // biến cho Chọn câu hỏi theo chủ đề
     var chosenCourse: Course? = null
     var chosenTopic: Topic? = null
     var totalQuestionsInTopic: Int = ZERO_QUESTIONS
 
-    // Live data for Choose Quiz By Topic to observe
+    // Dữ liệu trực tiếp cho Chọn câu hỏi theo chủ đề để quan sát
     val courses: LiveData<List<Course>> = repository.getAllCourses()
     lateinit var topicsByCourse: LiveData<List<Topic>>
     lateinit var totalQuestionsByTopic: LiveData<Int>
 
-    // state of start test for Choose Quiz By Topic to observe
+    // trạng thái bắt đầu kiểm tra Chọn câu hỏi theo chủ đề để quan sát
     private val _startTestStatus = MutableLiveData<Event<Resource<String>>>()
     val startTestStatus: LiveData<Event<Resource<String>>> = _startTestStatus
 
     /**
-     * When user choose a course from spinner. Update chosen course, then get all topics belong to
-     * that course
+     * Khi người dùng chọn một khóa học từ spinner. Cập nhật khóa học đã chọn, sau đó nhận tất cả các chủ đề thuộc về
+     * khóa học đó
      *
-     * @param course chosen course
+     * @param course khóa học đã chọn
      */
     fun onChooseCourse(course: Course) {
         chosenCourse = course
@@ -48,10 +48,10 @@ class ChooseQuizByTopicViewModel @Inject constructor(
     }
 
     /**
-     * When user choose a topic from spinner. Update chosen topic, then count all questions in that
-     * topic
+     * Khi người dùng chọn một chủ đề từ spinner. Cập nhật chủ đề đã chọn, sau đó đếm tất cả các câu hỏi trong đó
+     * đề tài
      *
-     * @param topic chosen topic
+     * @param topic  chủ đề đã chọn
      */
     fun onChooseTopic(topic: Topic) {
         chosenTopic = topic
@@ -59,8 +59,8 @@ class ChooseQuizByTopicViewModel @Inject constructor(
     }
 
     /**
-     * When user click Start test button. Check if all conditions are met in order to start test.
-     * If not, post error message. Else, post success message.
+     * Khi người dùng nhấp vào nút Bắt đầu kiểm tra. Kiểm tra nếu tất cả các điều kiện được đáp ứng để bắt đầu thử nghiệm.
+     * Nếu không, gửi thông báo lỗi. Khác, đăng thông báo thành công.
      */
     fun onStartTest() {
         if (chosenCourse == null) {
@@ -104,24 +104,24 @@ class ChooseQuizByTopicViewModel @Inject constructor(
     /* ----------------------------- DB related methods ----------------------------- */
 
     /**
-     * Get topics based on the chosen course.
+     * Nhận các chủ đề dựa trên khóa học đã chọn.
      *
-     * @param courseId chosen course id
+     * @param courseId đã chọn id khóa học
      */
     private fun getTopicsBasedOnCourse(courseId: Int) {
         topicsByCourse = repository.getTopicsBasedOnCourse(courseId = courseId)
     }
 
     /**
-     * Count all questions in the chosen topic
+     * Đếm tất cả các câu hỏi trong chủ đề đã chọn
      *
-     * @param topicId chosen topic id
+     * @param topicId id chủ đề đã chọn
      */
     private fun countQuestionsBasedOnTopic(topicId: Int): LiveData<Int> =
         repository.countQuestionsBasedOnTopic(topicId = topicId)
 
     /**
-     * Increase the chosen course priority by 1
+     * Tăng mức độ ưu tiên của khóa học đã chọn lên 1
      */
     private fun increaseCoursePriority() {
         // increase chosen course priority, then update that course
@@ -136,7 +136,7 @@ class ChooseQuizByTopicViewModel @Inject constructor(
     }
 
     /**
-     * Increase the chosen topic priority by 1
+     * Tăng mức độ ưu tiên của chủ đề đã chọn lên 1
      */
     private fun increaseTopicPriority() {
         // increase selected topic priority, then update that topic

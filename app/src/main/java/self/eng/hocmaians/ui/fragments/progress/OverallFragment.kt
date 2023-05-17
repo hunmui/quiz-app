@@ -61,7 +61,7 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentOverallBinding.bind(view)
 
-        // only observe overall scores if first time this fragment gets created
+        // chỉ quan sát điểm tổng thể nếu lần đầu tiên đoạn này được tạo
         if (savedInstanceState == null) {
             observeEachCourseScoresForRadarChart()
             observeEachCourseScoresForPieChart()
@@ -81,9 +81,9 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Overall scores. A radar chart entry: (45.3%, "Grammar").
-     * Observe each course, get its scores then let view model calculate the average score in
-     * each course (in percentage).
+     * Tổng điểm. Mục nhập biểu đồ radar: (45,3%, "Ngữ pháp").
+     * Quan sát từng môn học, lấy điểm sau đó để mô hình xem tính điểm trung bình trong
+     * mỗi khóa học (tính theo phần trăm).
      */
     private fun observeEachCourseScoresForRadarChart() {
 
@@ -111,11 +111,10 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
         getDataForRadarChart()
     }
 
-    /**
-     * Overall scores. A pie char entry: (6.7, "Grammar")
-     * Observe each course, get its scores then let view model calculate the average score in each
-     * course.
-     */
+    /** * Tổng điểm. Một mục biểu đồ hình tròn: (6.7, "Ngữ pháp")
+     *  Quan sát từng khóa học, lấy điểm của nó rồi để mô hình xem tính điểm trung bình trong mỗi
+     *  khóa học.
+     *  */
     private fun observeEachCourseScoresForPieChart() {
 
         // clear the previous pie chart data
@@ -140,11 +139,11 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Each course score. A pie chart entry: (7.8, "Topic 1 Pronunciation")
-     * Observe each topic, get its scores then let view model calculate the average score in each
-     * topic.
+     * Từng điểm môn học. Mục nhập biểu đồ hình tròn: (7.8, "Phát âm chủ đề 1")
+     * Quan sát từng chủ đề, lấy điểm rồi cho model xem tính điểm trung bình từng chủ đề
+     * đề tài.
      *
-     * @param courseId get all topics in a course
+     * @param CourseId nhận tất cả các chủ đề trong một khóa học
      */
     private fun observeEachTopicScoresForPieChart(courseId: Int) {
 
@@ -170,8 +169,8 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Observe radar chart data from viewModel, then load it into radar chart. Also, get the course
-     * name user need to improve on.
+     * Quan sát dữ liệu biểu đồ radar từ viewModel, sau đó tải nó vào biểu đồ radar. Ngoài ra, nhận khóa học
+     * tên người dùng cần cải thiện.
      */
     private fun getDataForRadarChart() {
         viewModel.radarChartData.observe(viewLifecycleOwner) { radarChartData ->
@@ -191,7 +190,7 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Observe pie chart data from viewModel, then load it into pie chart.
+     * Quan sát dữ liệu biểu đồ hình tròn từ viewModel, sau đó tải nó vào biểu đồ hình tròn.
      */
     private fun getDataForPieChart() {
         viewModel.pieChartData.observe(viewLifecycleOwner) { pieChartData ->
@@ -204,8 +203,8 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * When user click on filter pie chart radio button, pop up an alert dialog to let user choose
-     * filter type
+     * Khi người dùng nhấp vào nút radio biểu đồ tròn của bộ lọc, bật lên hộp thoại cảnh báo để cho phép người dùng chọn
+     * tuýt lọc
      */
     private fun onChooseToFilterPieChart() {
 
@@ -231,9 +230,9 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Observe data from viewModel for the corresponding filter index
+     * Quan sát dữ liệu từ viewModel để biết chỉ số bộ lọc tương ứng
      *
-     * @param chosenFilterIndex chosen filter index from alert dialog
+     * @param chosenFilterIndex đã chọn chỉ mục bộ lọc từ hộp thoại cảnh báo
      */
     private fun onFilterPieChart(chosenFilterIndex: Int) {
         when (chosenFilterIndex) {
@@ -246,24 +245,24 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Let the radar chart display data
+     * Hãy để biểu đồ radar hiển thị dữ liệu
      *
-     * @param radarChartData a list of course name and its average score
+     * @param radarChartData  danh sách tên khóa học và điểm trung bình của khóa học
      */
     private fun setDataForRadarChart(radarChartData: List<AvgScoreAndLabel>) {
 
         val entries: MutableList<RadarEntry> = mutableListOf()
         val courseNames: MutableList<String> = mutableListOf()
 
-        // extract average score and corresponding course name
+        // trích xuất điểm trung bình và tên khóa học tương ứng
         radarChartData.forEach { avgScoreAndLabel ->
-            // NOTE: The order of the entries when being added to the entries array determines
-            // their position around the center of the radarChart.
+            // LƯU Ý: Thứ tự của các mục khi được thêm vào mảng các mục xác định
+            // vị trí của chúng xung quanh trung tâm của radarChart.
             entries.add(RadarEntry(avgScoreAndLabel.avgScore))
             courseNames.add(avgScoreAndLabel.labelName)
         }
 
-        // set up x and y axis, also the legend
+        // thiết lập trục x và y, cũng là chú thích
         setupXYAxisAndLegendForRadarChart(courseNames = courseNames)
 
         val set1 = RadarDataSet(entries, getString(R.string.radar_chart_data_label))
@@ -300,15 +299,15 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Let the radar chart display data
+     * Hãy để biểu đồ radar hiển thị dữ liệu
      *
-     * @param pieChartData a list of label name and its average score
+     * @param pieChartData liệu danh sách tên nhãn và điểm trung bình của nó
      */
     private fun setDataForPieChart(pieChartData: List<AvgScoreAndLabel>) {
         val entries: MutableList<PieEntry> = mutableListOf()
 
-        // NOTE: The order of the entries when being added to the entries array determines their position around the center of
-        // the chart.
+        // LƯU Ý: Thứ tự của các mục nhập khi được thêm vào mảng mục nhập xác định vị trí của chúng quanh tâm của
+        // biểu đồ.
         pieChartData.forEach {
             entries.add(PieEntry(it.avgScore, it.labelName))
         }
@@ -323,7 +322,7 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
             selectionShift = 5f
         }
 
-        // add a lot of colors
+        // thêm nhiều màu
         val colors: MutableList<Int> = mutableListOf()
 
         for (c in ColorTemplate.VORDIPLOM_COLORS)
@@ -365,41 +364,41 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Set up radar chart foundation
+     * Thiết lập nền tảng biểu đồ radar
      */
     private fun setUpRadarChart() {
         binding.radarChart.apply {
-            // set the background for the radarChart
+            // thiết lập nền cho radarChart
             setBackgroundColor(Color.TRANSPARENT)
 
-            // disable radarChart description (looks ugly)
+            // vô hiệu hóa mô tả radarChart (trông xấu xí)
             description.isEnabled = false
 
-            // width, and color of the radar radarChart's cross lines (line that connects 2 labels)
+            // chiều rộng và màu sắc của radar radar Các đường chéo của biểu đồ radar (đường nối 2 nhãn)
             webLineWidth = 1f
             webColor = Color.LTGRAY
 
-            // width, and color of the radar radarChart's web lines (lines that are like spider web)
+            // độ rộng và màu sắc của radar Radar Các đường web của biểu đồ radar (các đường giống như mạng nhện)
             webLineWidthInner = 1f
             webColorInner = Color.LTGRAY
 
-            // transparency for all web lines (0: transparent, 255: no transparent)
+            // độ trong suốt cho tất cả các dòng web (0: trong suốt, 255: không trong suốt)
             webAlpha = 100
 
-            // custom MarkerView (extend MarkerView) and specify the layout to use for it
+            // tùy chỉnh MarkerView (mở rộng MarkerView) và chỉ định bố cục sẽ sử dụng cho nó
             val markerView: MarkerView = RadarMarkerView(
                 context = requireContext(),
                 layoutResource = R.layout.radar_marker_view
             )
-            markerView.chartView = this // For bounds control
-            marker = markerView // Set the marker to the radarChart
+            markerView.chartView = this // Đối với kiểm soát giới hạn
+            marker = markerView // Đặt điểm đánh dấu cho radarChart
         }
     }
 
     /**
-     * Set up x and y axis, also legend for radar chart
+     * Thiết lập trục x và y, cũng như chú thích cho biểu đồ radar
      *
-     * @param courseNames represents labels in radar chart
+     * @param CourseNames đại diện cho các nhãn trong biểu đồ radar
      */
     private fun setupXYAxisAndLegendForRadarChart(courseNames: List<String>) {
         val xAxis: XAxis = binding.radarChart.xAxis
@@ -441,7 +440,7 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Set up pie chart foundation
+     * Thiết lập nền tảng biểu đồ hình tròn
      */
     private fun setUpPieChart() {
         binding.pieChart.apply {
@@ -464,11 +463,11 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
             setDrawCenterText(true)
 
             rotationAngle = 0f
-            // enable rotation of the chart by touch
+            // cho phép xoay biểu đồ bằng cách chạm
             isRotationEnabled = true
             isHighlightPerTapEnabled = true
 
-            // add a selection listener
+            // thêm một bộ lắng nghe lựa chọn
             setOnChartValueSelectedListener(this@OverallFragment)
 
             // entry label styling
@@ -491,9 +490,9 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Style some text in the pie chart hole
+     * Tạo kiểu cho một số văn bản trong lỗ biểu đồ hình tròn
      *
-     * @return the styled text
+     * @return văn bản theo kiểu
      */
     private fun generateCenterSpannableText(): SpannableString {
         val spannableString = SpannableString("EnglishQuiz\ndeveloped with LOVE")
@@ -527,7 +526,7 @@ class OverallFragment : Fragment(R.layout.fragment_overall), OnChartValueSelecte
     }
 
     /**
-     * Set pie chart description
+     * Đặt mô tả biểu đồ hình tròn
      */
     private fun setPieChartDescription() {
         binding.tvPieChartDescription.text = when (viewModel.chosenDialogIndex) {

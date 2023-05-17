@@ -12,14 +12,14 @@ import self.eng.hocmaians.util.Constants.ADMIN_ADDED
 
 class ManageTopicsAdapter : RecyclerView.Adapter<ManageTopicsAdapter.ManageTopicsViewHolder>() {
 
-    // when user click edit topic
+    // khi người dùng nhấp vào chỉnh sửa chủ đề
     private var onEditTopicListener: ((Topic) -> Unit)? = null
 
     fun setOnEditTopicListener(listener: (Topic) -> Unit) {
         onEditTopicListener = listener
     }
 
-    // when user click an itemView (whole topic), then pass topicId and topicName
+    // khi người dùng nhấp vào một itemView (toàn bộ chủ đề), sau đó chuyển topicId và topicName
     private var onTopicClickListener: ((Int, String) -> Unit)? = null
 
     fun setOnTopicClickListener(listener: (Int, String) -> Unit) {

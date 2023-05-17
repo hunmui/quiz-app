@@ -38,7 +38,7 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
 
         binding.apply {
 
-            // wait until all topic names are fully loaded
+            // đợi cho đến khi tất cả các tên chủ đề được tải đầy đủ
             btnAddEditTopic.isEnabled = false
 
             edtTopicName.doOnTextChanged { text, _, _, _ ->
@@ -56,9 +56,9 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
                     btnAddEditTopic.isEnabled = true
 
                     if (args.topicAction == Constants.ACTION_ADD_TOPIC) {
-                        // if this is adding topic:
-                        // 1, Change the title to "Add topic"
-                        // 2, Show add topic button and set a click listener on it to add topic
+                        // nếu đây là thêm chủ đề:
+                        // 1, Đổi tiêu đề thành "Thêm chủ đề"
+                        // 2, Hiển thị nút thêm chủ đề và đặt trình nghe nhấp chuột vào đó để thêm chủ đề
 
                         btnAddEditTopic.apply {
                             text = getString(R.string.tv_add_topic)
@@ -70,11 +70,11 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
 
                         tvAddTopicHome.text = getString(R.string.tv_add_topic)
                     } else {
-                        // if this is editing topic:
-                        // 1, Change the title to "Edit topic"
-                        // 2, Show delete topic button
-                        // 3, Fill the edit text with topic name
-                        // 4, Show edit topic button, and set a click listener on it to edit topic
+                        // nếu đây là chủ đề chỉnh sửa:
+                        // 1, Đổi tiêu đề thành "Sửa chủ đề"
+                        // 2, Hiện nút xóa chủ đề
+                        // 3, Điền vào văn bản chỉnh sửa với tên chủ đề
+                        // 4, Hiển thị nút chỉnh sửa chủ đề và đặt trình nghe nhấp chuột vào đó để chỉnh sửa chủ đề
 
                         tvAddTopicHome.text = getString(R.string.tv_edit_topic)
 
@@ -101,7 +101,7 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
     }
 
     /**
-     * Observe the state of adding, updating or deleting a topic
+     * Quan sát trạng thái thêm, cập nhật hoặc xóa chủ đề
      */
     private fun subscribeToObserver() {
         viewModel.insertTopicStatus.observe(viewLifecycleOwner, {
@@ -182,7 +182,7 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
     }
 
     /**
-     * Add topic. After that, make edit text field empty so that user can add the next topic
+     * Thêm chủ đề. Sau đó, để trống trường văn bản chỉnh sửa để người dùng có thể thêm chủ đề tiếp theo
      */
     private fun addTopic(topicNames: List<String>) {
         viewModel.insertTopic(
@@ -193,7 +193,7 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
     }
 
     /**
-     * Edit topic name. After that, return to ManageTopicsFragment to load updated topic.
+     * Sửa tên chủ đề. Sau đó, quay lại ManageTopicsFragment để tải chủ đề đã cập nhật.
      */
     private fun editTopic(topicNames: List<String>) {
         args.topic?.let {
@@ -206,10 +206,10 @@ class AddEditTopicFragment : Fragment(R.layout.fragment_add_edit_topic) {
     }
 
     /**
-     * Delete topic and its associated stuff (questions, answers and scores). Then return to
+     * Xóa chủ đề và nội dung liên quan (câu hỏi, câu trả lời và điểm số). Sau đó quay trở lại
      * ManageTopicsFragment.
      *
-     * @param topic the topic to delete
+     * @param topic chủ đề cần xóa
      */
     private fun deleteTopic(topic: Topic) {
         MaterialAlertDialogBuilder(requireContext())

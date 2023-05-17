@@ -37,7 +37,7 @@ class ChooseMixedQuizFragment : Fragment(R.layout.fragment_choose_mixed_quiz) {
 
         subscribeToObserver()
 
-        // only count all questions if first time this fragment get created
+        // chỉ tính tất cả các câu hỏi nếu lần đầu tiên fragment này được tạo
         if (savedInstanceState == null) {
             viewModel.allQuestions.observe(viewLifecycleOwner) { totalQuestions ->
                 viewModel.totalQuestionsInDb = totalQuestions
@@ -64,7 +64,7 @@ class ChooseMixedQuizFragment : Fragment(R.layout.fragment_choose_mixed_quiz) {
     }
 
     /**
-     * Set up Choose Quantity Spinner. Update chosenQuantity when user choose a quantity.
+     * Thiết lập Chọn Số lượng Spinner. Cập nhật Số lượng đã chọn khi người dùng chọn số lượng.
      */
     private fun setupChooseQuantitySpinner() {
         val quantityAdapter: ArrayAdapter<Int> = ArrayAdapter(
@@ -77,7 +77,7 @@ class ChooseMixedQuizFragment : Fragment(R.layout.fragment_choose_mixed_quiz) {
         binding.spinnerChooseQuantity.apply {
             adapter = quantityAdapter
 
-            // in case of screen rotation
+            // trường hợp xoay màn hình
             viewModel.chosenQuantity?.let {
                 this.setSelection(quantityAdapter.getPosition(it))
             }
@@ -100,14 +100,14 @@ class ChooseMixedQuizFragment : Fragment(R.layout.fragment_choose_mixed_quiz) {
     }
 
     /**
-     * Observe start test status
+     * Quan sát trạng thái kiểm tra bắt đầu
      */
     private fun subscribeToObserver() {
         viewModel.startTestStatus.observe(viewLifecycleOwner, {
             it.getContentIfNotHandled()?.let { result ->
                 when (result.status) {
                     Status.SUCCESS -> {
-                        // changing fragment, pass required arguments
+                        // thay đổi fragment, truyền các đối số
                         val action = HomeFragmentDirections.actionHomeFragmentToQuizFragment(
                             courseName = MIXED_COURSE_NAME,
                             topicId = MIXED_TOPIC_ID,

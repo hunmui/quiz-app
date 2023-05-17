@@ -18,8 +18,8 @@ class RadarMarkerView(
     private val tvContent: TextView = findViewById(R.id.tv_radar_chart_content)
     private val format: DecimalFormat = DecimalFormat("##0")
 
-    // runs every time the MarkerView is re-drawn, can be used to update the
-    // content (user-interface)
+    // chạy mỗi khi MarkerView được vẽ lại, có thể được sử dụng để cập nhật
+    // nội dung (giao diện người dùng)
     override fun refreshContent(e: Entry?, highlight: Highlight?) {
         tvContent.text = String.format("%s %%", format.format(e?.y))
         super.refreshContent(e, highlight)

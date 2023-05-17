@@ -21,7 +21,7 @@ class OverallViewModel @Inject constructor(
 
     val courses: LiveData<List<Course>> = repository.getAllCourses()
 
-    // live data for OverallFragment to observe to load data for its radar chart
+    // dữ liệu trực tiếp cho WholeFragment để quan sát để tải dữ liệu cho biểu đồ radar của nó
     private val radarChartAvgScores: MutableList<AvgScoreAndLabel> = mutableListOf()
     private var _radarChartData = MutableLiveData<List<AvgScoreAndLabel>>()
     val radarChartData: LiveData<List<AvgScoreAndLabel>> = _radarChartData
@@ -30,23 +30,23 @@ class OverallViewModel @Inject constructor(
     private var _courseNameNeedToImprove = MutableLiveData("")
     val courseNameNeedToImprove: LiveData<String> = _courseNameNeedToImprove
 
-    // live data for OverallFragment to observe to load data for its pie chart
+    // dữ liệu trực tiếp cho WholeFragment để quan sát để tải dữ liệu cho biểu đồ hình tròn của nó
     private val pieChartAvgScores: MutableList<AvgScoreAndLabel> = mutableListOf()
     private var _pieChartData = MutableLiveData<List<AvgScoreAndLabel>>()
     val pieChartData: LiveData<List<AvgScoreAndLabel>> = _pieChartData
 
-    // for pie chart, has to ensure the data quantity is reached before set the data for pie chart
+    // đối với biểu đồ hình tròn, phải đảm bảo đạt đủ số lượng dữ liệu trước khi đặt dữ liệu cho biểu đồ hình tròn
     var ensureDataQuantity: Int = 0
 
-    // holder chosen position for pop up MaterialAlertDialog
+    // giữ vị trí được chọn cho cửa sổ bật lên MaterialAlertDialog
     var chosenDialogIndex = FILTER_BY_OVERALL
 
     /**
-     * Calculate average score in each course. The average score is presented in percentage form
-     * (9.3 will be 93%). Then let _avgScores post the latest value.
+     * Tính điểm trung bình trong mỗi khóa học. Điểm trung bình được trình bày dưới dạng phần trăm
+     * (9,3 sẽ là 93%). Sau đó, hãy để _avgScores đăng giá trị mới nhất.
      *
-     * @param scores a list of score in the corresponding course
-     * @param labelName course name to load the radar chart label
+     * @param scores danh sách điểm trong khóa học tương ứng
+     * @param labelName tên khóa học để tải nhãn biểu đồ radar
      */
     fun calAvgScoreInPercentage(scores: List<Score>, labelName: String) {
         var scoreSum = 0f
@@ -55,7 +55,7 @@ class OverallViewModel @Inject constructor(
             scoreSum += (score.totalCorrect.toFloat() / score.totalQuestions) * 10f
         }
 
-        // avg score in each course in percentage
+        // điểm trung bình trong mỗi khóa học theo tỷ lệ phần trăm
         val avgScore = (scoreSum / scores.size) * 10f
         radarChartAvgScores.add(AvgScoreAndLabel(avgScore = avgScore, labelName = labelName))
 
@@ -63,12 +63,12 @@ class OverallViewModel @Inject constructor(
     }
 
     /**
-     * Get the course name that has the lowest average score (except for Mixed Quiz)
+     * Lấy tên môn học có điểm trung bình thấp nhất (trừ Trắc nghiệm hỗn hợp)
      */
     fun getCourseThatHasTheLowestAvgScore() {
         var courseNameToFind = ""
 
-        // because average score here is in percentage so max score of 10 is now 100
+        // vì điểm trung bình ở đây tính theo phần trăm nên điểm tối đa của 10 bây giờ là 100
         var lowestAvgScore = OVER_MAXIMUM_SCORE_OF_100
 
         radarChartAvgScores.forEach {
@@ -82,10 +82,10 @@ class OverallViewModel @Inject constructor(
     }
 
     /**
-     * Calculate average score
+     * Tính điểm trung bình
      *
-     * @param scores a list of scores
-     * @param labelName which label is this function calculate avg score for
+     * @param scores danh sách điểm
+     * @param labelName chức năng này tính toán điểm trung bình cho nhãn nào
      */
     fun calculateAverageScore(scores: List<Score>, labelName: String) {
         var scoreSum = 0f
@@ -101,7 +101,7 @@ class OverallViewModel @Inject constructor(
     }
 
     /**
-     * Clear all previous pie chart data
+     * Xóa tất cả dữ liệu biểu đồ hình tròn trước đó
      */
     fun clearPreviousScoreData() {
         pieChartAvgScores.clear()

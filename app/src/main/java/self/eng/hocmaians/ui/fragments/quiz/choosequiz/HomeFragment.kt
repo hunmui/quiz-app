@@ -8,8 +8,8 @@ import self.eng.hocmaians.R
 import self.eng.hocmaians.databinding.FragmentHomeBinding
 
 /**
- * Holder Fragment that contains Choose Quiz By Topic, and Choose Mixed Quiz Fragment.
- * ViewPager2 is responsible for handling those 2 fragments.
+ * Holder Fragment sở hữu có chứa Chọn câu đố theo chủ đề và Chọn fragment câu đố hỗn hợp.
+ * ViewPager2 chịu trách nhiệm xử lý 2 fragment đó.
  */
 class HomeFragment : Fragment(R.layout.fragment_home) {
 

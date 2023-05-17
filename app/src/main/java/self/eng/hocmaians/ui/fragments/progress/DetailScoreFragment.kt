@@ -43,10 +43,10 @@ import self.eng.hocmaians.util.Constants.OVERALL_RESULTS
 import self.eng.hocmaians.util.Status
 
 /**
- * This fragment has 3 screens:
- * First screen: Filter text, graph description and the graph itself.
- * Second screen: Let user choose filter condition.
- * Third Screen (filter by topic is optional): Let user choose filter by which course and/or which topic to be filtered
+ * Đoạn này có 3 màn hình:
+ * Màn hình đầu tiên: Lọc văn bản, mô tả biểu đồ và chính biểu đồ đó.
+ * Màn hình thứ hai: Cho phép người dùng chọn điều kiện lọc.
+ * Màn hình thứ ba (lọc theo chủ đề là tùy chọn): Cho phép người dùng chọn lọc theo khóa học và/hoặc chủ đề nào sẽ được lọc
  */
 @AndroidEntryPoint
 class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartValueSelectedListener {
@@ -74,7 +74,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
             whenNoData()
         }
 
-        // restore currently shown layout when rotate the device
+        // khôi phục bố cục đang hiển thị khi xoay thiết bị
         when {
             viewModel.showFirstLayout -> {
                 showFirstScreen()
@@ -136,7 +136,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
             }
         }
 
-        // go back from third screen to second screen
+        // quay về từ màn hình thứ 3 đến đến màn hình thứ 2
         binding.btnGoBack.setOnClickListener {
             hideThirdScreen()
             showSecondScreen()
@@ -144,7 +144,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Observe filter progress state
+     * theo dõi trạng thái lọc
      */
     private fun subscribeToObserver() {
         viewModel.filter.observe(viewLifecycleOwner) {
@@ -174,8 +174,8 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Load courses into spinner, then set click listener on Filter button only if this screen
-     * contains only filtering by courses
+     * Tải các khóa học vào công cụ quay vòng, sau đó chỉ đặt trình nghe nhấp chuột trên nút Bộ lọc nếu màn hình này
+     * chỉ chứa lọc theo khóa học
      */
     private fun loadCoursesIntoSpinner() {
         viewModel.courses.observe(viewLifecycleOwner) { courses ->
@@ -193,7 +193,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
                 binding.spinnerChooseCourse.apply {
                     adapter = courseAdapter
 
-                    // load the chosen course in case of screen rotation
+                    // tải khóa học đã chọn trong trường hợp xoay màn hình
                     viewModel.chosenCourse?.let {
                         this.setSelection(courseAdapter.getPosition(it))
                     }
@@ -229,7 +229,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Load topics into spinner, then set click listener on Filter button
+     * Tải các chủ đề vào công cụ quay vòng, sau đó đặt trình nghe nhấp vào nút Bộ lọc
      */
     private fun loadTopicsIntoSpinner() {
         viewModel.topicsByCourse.observe(viewLifecycleOwner) { topics ->
@@ -247,7 +247,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
                 binding.spinnerChooseTopic.apply {
                     adapter = topicsAdapter
 
-                    // load the chosen topic in case of screen rotation
+                    // tải chủ đề đã chọn trong trường hợp xoay màn hình
                     viewModel.chosenTopic?.let {
                         this.setSelection(topicsAdapter.getPosition(it))
                     }
@@ -276,8 +276,8 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Filter results by course or by topic, based on the variable `showFilterByTopicSpinner`. If
-     * it is true, then filter by topic; else filter by course
+     * Lọc kết quả theo khóa học hoặc theo chủ đề, dựa trên biến `showFilterByTopicSpinner`. Nếu như
+     * đúng thì lọc theo chủ đề; khác lọc theo khóa học
      */
     private fun filterByCourseOrTopic() {
         when {
@@ -302,7 +302,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Set description text for the line graph
+     * Đặt văn bản mô tả cho biểu đồ đường
      */
     private fun setGraphDescription() {
         val description: String = when (viewModel.getGraphDataBy) {
@@ -324,7 +324,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Go get scores to fill line graph
+     * Đi lấy điểm để điền biểu đồ đường
      */
     private fun goGetDataForGraph() {
         viewModel.scores.observe(viewLifecycleOwner) { scores ->
@@ -342,9 +342,9 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Set up line graph line data set
+     * Thiết lập bộ dữ liệu đường biểu đồ đường
      *
-     * @param scores a list of scores to load
+     * @param scores danh sách điểm cần tải
      */
     private fun setupLineDataSet(scores: List<Score>) {
         // a list of entries
@@ -369,10 +369,10 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
         lateinit var lineDataSet: LineDataSet
 
         if (binding.lineChart.data != null && binding.lineChart.data.dataSetCount > 0) {
-            // this graph already has some data
+            // biểu đồ này đã có một số dữ liệu
             lineDataSet = binding.lineChart.data.getDataSetByIndex(0) as LineDataSet
 
-            // clear previous value and refresh the graph
+            // xóa giá trị trước đó và làm mới biểu đồ
             lineDataSet.values.clear()
             binding.lineChart.invalidate()
 
@@ -381,51 +381,51 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
             binding.lineChart.data.notifyDataChanged()
             binding.lineChart.notifyDataSetChanged()
         } else {
-            // first time this graph has data
+            // lần đầu tiên biểu đồ này có dữ liệu
 
-            // create a dataset and give it a type
+            // tạo tập dữ liệu và đặt kiểu cho nó
             lineDataSet = LineDataSet(entries, getString(R.string.data_set_name))
 
             lineDataSet.apply {
                 setDrawIcons(false)
 
-                // draw dashed line
+                // vẽ nét đứt
                 enableDashedLine(10f, 5f, 0f)
 
-                // white lines and points
+                // đường trắng và điểm
                 color = Color.WHITE
                 setCircleColor(Color.WHITE)
 
-                // line thickness and point size
+                // độ dày đường kẻ và kích thước điểm
                 lineWidth = 1f
                 circleRadius = 3f
 
-                // draw points as solid circles
+                // vẽ điểm dưới dạng đường tròn liền
                 setDrawCircleHole(false)
 
-                // customize legend entry
+                // tùy chỉnh mục chú thích
                 formLineWidth = 1f
                 formLineDashEffect = DashPathEffect(floatArrayOf(10f, 5f), 0f)
                 formSize = 15f
 
-                // text size of values
+                // kích thước văn bản của các giá trị
                 valueTextSize = 9f
 
-                // draw selection line as dashed
+                // vẽ đường chọn dạng nét đứt
                 enableDashedHighlightLine(10f, 5f, 0f)
 
-                // set the filled area
+                // đặt vùng đã điền
                 setDrawFilled(true)
                 fillFormatter = IFillFormatter { _, _ -> MIN_SCORE }
             }
 
             val dataSets: MutableList<ILineDataSet> = mutableListOf()
-            dataSets.add(lineDataSet) // add the data sets
+            dataSets.add(lineDataSet) // thêm bộ dữ liệu
 
-            // create a data object with the data sets
+            // tạo một đối tượng dữ liệu với các bộ dữ liệu
             val data = LineData(dataSets)
 
-            // set data
+            // thiết lập dữ liệu
             binding.lineChart.data = data
             binding.lineChart.data.setValueTextColor(Color.WHITE)
 
@@ -433,13 +433,13 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
             binding.lineChart.invalidate()
         }
 
-        // draw points over time
+        // vẽ điểm theo thời gian
         binding.lineChart.animateXY(ANIMATE_X_DURATION, ANIMATE_Y_DURATION)
     }
 
     /**
-     * What to do when there is no data yet
-     * 1. Direct the user to filter his scores
+     * Phải làm gì khi chưa có dữ liệu
+     * 1. Hướng dẫn người dùng lọc điểm của mình
      */
     private fun whenNoData() {
         binding.tvGraphDescription.text = getString(R.string.graph_desc_when_no_data)
@@ -532,41 +532,41 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Set line graph basic properties such as background color, legend, etc.
+     * Đặt các thuộc tính cơ bản của biểu đồ đường như màu nền, chú thích, v.v.
      */
     private fun setupChartFoundation() {
         binding.lineChart.apply {
             // background color
             setBackgroundColor(Color.TRANSPARENT)
 
-            // disable description text
+            // vô hiệu hóa văn bản mô tả
             description.isEnabled = false
 
-            // enable touch gestures
+            // kích hoạt thao tác chạm
             setTouchEnabled(true)
 
             // set listeners
             setOnChartValueSelectedListener(this@DetailScoreFragment)
             setDrawGridBackground(false)
 
-            // create marker to display box when values are selected
+            // tạo điểm đánh dấu để hiển thị hộp khi các giá trị được chọn
             val markerView = MyMarkerView(requireContext(), R.layout.custom_marker_view)
 
-            // set the marker to the chart
+            // đặt điểm đánh dấu vào biểu đồ
             markerView.chartView = this
             marker = markerView
 
-            // enable scaling and dragging
+            // kích hoạt mở rộng và kéo
             isDragEnabled = true
             setScaleEnabled(true)
 
-            // force pin zoom along both axis
+            // buộc phóng to pin dọc theo cả hai trục
             setPinchZoom(true)
 
-            // get the legend (only possible after setting data)
+            // lấy chú thích (chỉ có thể sau khi thiết lập dữ liệu)
             val legend: Legend = this.legend
 
-            // draw legend entries as lines
+            // vẽ các mục chú thích dưới dạng các dòng
             legend.form = Legend.LegendForm.LINE
 
             legend.textColor = Color.WHITE
@@ -574,7 +574,7 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
     }
 
     /**
-     * Set up xAxis and yAxis, then set 2 limit lines on yAxis
+     * Thiết lập xAxis và yAxis, sau đó thiết lập 2 đường giới hạn trên yAxis
      */
     private fun setupXYAxis() {
         lateinit var xAxis: XAxis
@@ -583,16 +583,16 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
         binding.lineChart.apply {
             xAxis = this.xAxis
 
-            // vertical grid lines
+            // đường lưới dọc
             xAxis.enableGridDashedLine(10f, 10f, 0f)
             xAxis.textColor = Color.WHITE
 
-            // disable dual axis (only use LEFT axis)
+            // vô hiệu hóa trục kép (chỉ sử dụng trục TRÁI)
             this.axisRight.isEnabled = false
 
             yAxis = this.axisLeft
             yAxis.apply {
-                // horizontal grid lines
+                // đường lưới ngang
                 enableGridDashedLine(10f, 10f, 0f)
 
                 textColor = Color.WHITE
@@ -625,11 +625,11 @@ class DetailScoreFragment : Fragment(R.layout.fragment_detail_score), OnChartVal
             textColor = Color.WHITE
         }
 
-        // draw limit lines behind data instead of on top
+        // vẽ các đường giới hạn phía sau dữ liệu thay vì phía trên
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
 
-        // add limit lines to yAxis only
+        // chỉ thêm các đường giới hạn vào yAxis
         yAxis.addLimitLine(ll1)
         yAxis.addLimitLine(ll2)
     }

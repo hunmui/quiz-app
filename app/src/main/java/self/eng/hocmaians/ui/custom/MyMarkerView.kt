@@ -12,7 +12,7 @@ import com.github.mikephil.charting.utils.Utils
 import self.eng.hocmaians.R
 
 /**
- * Custom marker which is used to display text when clicking a point in graph
+ * Điểm đánh dấu tùy chỉnh được sử dụng để hiển thị văn bản khi nhấp vào một điểm trong biểu đồ
  */
 @SuppressLint("ViewConstructor")
 class MyMarkerView(
@@ -20,7 +20,7 @@ class MyMarkerView(
     layoutResource: Int
 ) : MarkerView(context, layoutResource) {
 
-    // this is the text view in custom_marker_view.xml
+    // đây là chế độ xem văn bản trong custom_marker_view.xml
     private val tvAttemptNumber: TextView = findViewById(R.id.tv_attempt_number)
     private val tvContent: TextView = findViewById(R.id.tv_line_chart_content)
 

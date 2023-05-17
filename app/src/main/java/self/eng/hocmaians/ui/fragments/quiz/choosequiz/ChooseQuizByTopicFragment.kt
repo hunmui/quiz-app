@@ -58,11 +58,11 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
     }
 
     /**
-     * Load all course from the Courses table in the database.
-     * Let the spinner display all courses, then load all topics which are corresponding to
-     * the chosen course.
+     * Tải tất cả khóa học từ bảng Khóa học trong cơ sở dữ liệu.
+     * Để spinner hiển thị tất cả các khóa học, sau đó tải tất cả các chủ đề tương ứng với
+     * khóa học đã chọn.
      *
-     * @param courses a list of all courses available
+     * @param courses danh sách tất cả các khóa học có sẵn
      */
     private fun loadCoursesToSpinner(courses: List<Course>) {
 
@@ -76,7 +76,7 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
         binding.spinnerChooseCourse.apply {
             adapter = courseAdapter
 
-            // load the chosen course in case of screen rotation
+            // tải khóa học đã chọn trong trường hợp xoay màn hình
             viewModel.chosenCourse?.let {
                 this.setSelection(courseAdapter.getPosition(it))
             }
@@ -108,11 +108,11 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
     }
 
     /**
-     * Loads all topics from the Topic table in the database, based on the chosen Course.
-     * Let the spinner display all the selected topics. Then show total number of questions that are
-     * available in the selected topic.
+     * Tải tất cả các chủ đề từ bảng Chủ đề trong cơ sở dữ liệu, dựa trên Khóa học đã chọn.
+     * Để spinner hiển thị tất cả các chủ đề đã chọn. Sau đó hiển thị tổng số câu hỏi đó là
+     * có sẵn trong chủ đề đã chọn.
      *
-     * @param topics a list of all topics based on the chosen course
+     * @param topics danh sách tất cả các chủ đề dựa trên khóa học đã chọn
      */
     private fun loadTopicsToSpinner(topics: List<Topic>) {
 
@@ -126,7 +126,7 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
         binding.spinnerChooseTopic.apply {
             adapter = topicAdapter
 
-            // load the chosen topic in case of screen rotation
+            // tải chủ đề đã chọn trong trường hợp xoay màn hình
             viewModel.chosenTopic.let {
                 this.setSelection(topicAdapter.getPosition(it))
             }
@@ -153,8 +153,8 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
     }
 
     /**
-     * Start the quiz, pass 4 required arguments: courseName, topicName, topicId, and question
-     * quantity
+     * Bắt đầu bài kiểm tra, vượt qua 4 đối số bắt buộc: Tên khóa học, Tên chủ đề, Id chủ đề và câu hỏi
+     * Số lượng
      */
     private fun startQuiz() {
         when {
@@ -181,14 +181,14 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
     }
 
     /**
-     * Observe the status of starting the test.
+     * Quan sát trạng thái bắt đầu kiểm tra.
      */
     private fun subscribeToObserver() {
         viewModel.startTestStatus.observe(viewLifecycleOwner) {
             it.getContentIfNotHandled()?.let { result ->
                 when (result.status) {
                     Status.SUCCESS -> {
-                        // changing fragment, pass required arguments
+                        // thay đổi fragment, truyền các đối số cần thiết
                         val action = HomeFragmentDirections.actionHomeFragmentToQuizFragment(
                             courseName = viewModel.chosenCourse!!.name,
                             topicId = viewModel.chosenTopic!!.id,
@@ -214,7 +214,7 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
     }
 
     /**
-     * Set 2 helper buttons: choose course and choose topic
+     * Đặt 2 nút trợ giúp: chọn khóa học và chọn chủ đề
      */
     private fun setHelpButtons() {
         binding.apply {
@@ -237,7 +237,7 @@ class ChooseQuizByTopicFragment : Fragment(R.layout.fragment_choose_quiz_by_topi
     }
 
     /**
-     * If there are no courses or no topics in the database then set total questions to 0
+     * Nếu không có khóa học hoặc không có chủ đề trong cơ sở dữ liệu, hãy đặt tổng số câu hỏi thành 0
      */
     private fun setTotalQuestionsToZero() {
         viewModel.totalQuestionsInTopic = ZERO_QUESTIONS

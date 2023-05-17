@@ -33,10 +33,10 @@ import self.eng.hocmaians.util.Constants.MIXED_TOPIC_ID
 import self.eng.hocmaians.util.Constants.MIXED_TOPIC_NAME
 
 /**
- * Display a nice little graph to show user progress. Also, display a list of user previous attempts
- * so that user can navigate back to that specific attempt.
+ * Hiển thị một biểu đồ nhỏ đẹp mắt để hiển thị tiến trình của người dùng. Ngoài ra, hiển thị danh sách các lần thử trước của người dùng
+ * để người dùng có thể điều hướng quay lại lần thử cụ thể đó.
  *
- * NOTE: there's a lot of magic constants in the line chart
+ * LƯU Ý: có rất nhiều hằng số ma thuật trong biểu đồ đường
  */
 @AndroidEntryPoint
 class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedListener {
@@ -97,10 +97,10 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
     }
 
     /**
-     * Set description for graph
+     * Đặt mô tả cho đồ thị
      *
-     * @param topicName topic name
-     * @param courseName course name
+     * @param topicName tên chủ đề
+     * @param courseName tên khóa học
      */
     private fun setGraphDescription(topicName: String, courseName: String) {
         val graphDescription = "${getString(R.string.tv_graph_desc_1)} $topicName" +
@@ -109,7 +109,7 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
     }
 
     /**
-     * Set up previous attempts recycler view
+     * Thiết lập chế độ xem trình tái chế lần thử trước
      */
     private fun setupRecyclerView() {
         attemptsAdapter = AttemptsAdapter()
@@ -137,7 +137,7 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
      */
     private fun setDataForGraph(scores: List<Score>) {
 
-        // a list of entries
+        // danh sách các mục
         val entries: MutableList<Entry> = mutableListOf()
 
         // fill entries
@@ -165,35 +165,35 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
             binding.lineChart.data.notifyDataChanged()
             binding.lineChart.notifyDataSetChanged()
         } else {
-            // create a dataset and give it a type
+            // tạo tập dữ liệu và đặt kiểu cho nó
             lineDataSet = LineDataSet(entries, getString(R.string.data_set_name))
 
             lineDataSet.apply {
                 setDrawIcons(false)
 
-                // draw dashed line
+                // vẽ nét đứt
                 enableDashedLine(10f, 5f, 0f)
 
-                // white lines and points
+                // đường trắng và điểm
                 color = Color.WHITE
                 setCircleColor(Color.WHITE)
 
-                // line thickness and point size
+                // độ dày đường kẻ và kích thước điểm
                 lineWidth = 1f
                 circleRadius = 3f
 
-                // draw points as solid circles
+                // vẽ điểm dưới dạng đường tròn liền
                 setDrawCircleHole(false)
 
-                // customize legend entry
+                // tùy chỉnh mục chú thích
                 formLineWidth = 1f
                 formLineDashEffect = DashPathEffect(floatArrayOf(10f, 5f), 0f)
                 formSize = 15f
 
-                // text size of values
+                // kích thước văn bản của các giá trị
                 valueTextSize = 9f
 
-                // draw selection line as dashed
+                // vẽ đường chọn dạng nét đứt
                 enableDashedHighlightLine(10f, 5f, 0f)
 
                 // set the filled area
@@ -204,7 +204,7 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
             val dataSets: MutableList<ILineDataSet> = mutableListOf()
             dataSets.add(lineDataSet) // add the data sets
 
-            // create a data object with the data sets
+            // tạo một đối tượng dữ liệu với các bộ dữ liệu
             val data = LineData(dataSets)
 
             // set data
@@ -214,7 +214,7 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
     }
 
     /**
-     * Set chart's properties and listeners
+     * Đặt thuộc tính và trình nghe của biểu đồ
      */
     private fun setupLineChart() {
         binding.lineChart.apply {
@@ -224,31 +224,31 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
             // disable description text
             description.isEnabled = false
 
-            // enable touch gestures
+            // kích hoạt thao tác chạm
             setTouchEnabled(true)
 
             // set listeners
             setOnChartValueSelectedListener(this@GraphFragment)
             setDrawGridBackground(false)
 
-            // create marker to display box when values are selected
+            // tạo điểm đánh dấu để hiển thị hộp khi các giá trị được chọn
             val markerView = MyMarkerView(requireContext(), R.layout.custom_marker_view)
 
-            // set the marker to the chart
+            // đặt điểm đánh dấu cho biểu đồ
             markerView.chartView = this
             marker = markerView
 
-            // enable scaling and dragging
+            // kích hoạt mở rộng và kéo
             isDragEnabled = true
             setScaleEnabled(true)
 
-            // force pin zoom along both axis
+            // buộc phóng to pin dọc theo cả hai trục
             setPinchZoom(true)
 
-            // draw points over time
+            // vẽ điểm theo thời gian
             animateXY(Constants.ANIMATE_X_DURATION, Constants.ANIMATE_Y_DURATION)
 
-            // get the legend (only possible after setting data)
+            // lấy chú thích (chỉ có thể sau khi thiết lập dữ liệu)
             val legend: Legend = this.legend
 
             // draw legend entries as lines
@@ -292,10 +292,10 @@ class GraphFragment : Fragment(R.layout.fragment_graph), OnChartValueSelectedLis
     }
 
     /**
-     * Creates 1 limit line for xAxis and 2 limits line for yAxis
+     * Tạo 1 đường giới hạn cho xAxis và 2 đường giới hạn cho yAxis
      *
-     * @param xAxis the xAxis
-     * @param yAxis the yAxis
+     * @param xAxis xAxis
+     * @param yAxis yAxis
      */
     private fun createLimitLines(xAxis: XAxis, yAxis: YAxis) {
         val ll1 = LimitLine(Constants.MAX_SCORE, getString(R.string.upper_y_limit))

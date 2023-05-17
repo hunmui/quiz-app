@@ -22,7 +22,7 @@ class DetailScoreViewModel @Inject constructor(
     private val repository: IRepository
 ) : ViewModel() {
 
-    // variables for ProgressFragment to observe
+    // các biến để ProgressFragment quan sát
     var showFirstLayout = true
     var showSecondLayout = false
     var showThirdLayout = false
@@ -32,19 +32,19 @@ class DetailScoreViewModel @Inject constructor(
     var chosenCourse: Course? = null
     var chosenTopic: Topic? = null
 
-    // live data from db for ProgressFragment to observe
+    // dữ liệu trực tiếp từ db cho ProgressFragment để quan sát
     val courses: LiveData<List<Course>> = repository.getAllCourses()
     lateinit var topicsByCourse: LiveData<List<Topic>>
     lateinit var scores: LiveData<List<Score>>
 
     var isScoresInitialized = false
 
-    // filter progress state for ProgressFragment to observe
+    // lọc trạng thái tiến trình cho ProgressFragment để quan sát
     private var _filter = MutableLiveData<Event<Resource<String>>>()
     val filter: LiveData<Event<Resource<String>>> = _filter
 
     /**
-     * User wants to filter overall progress
+     * Người dùng muốn lọc tiến trình tổng thể
      */
     fun filterByOverall() {
         getAllUserScores()
@@ -59,7 +59,7 @@ class DetailScoreViewModel @Inject constructor(
     }
 
     /**
-     * User choose a course to filter progress
+     * Người dùng chọn một khóa học để lọc tiến độ
      */
     fun onChooseCourse(course: Course) {
         chosenCourse = course
@@ -70,7 +70,7 @@ class DetailScoreViewModel @Inject constructor(
     }
 
     /**
-     * User click Filter progress button
+     * Người dùng nhấp vào nút Tiến trình lọc
      */
     fun onFilterProgress() {
         if (chosenCourse == null) {

@@ -62,7 +62,7 @@ class ManageTopicsFragment : Fragment(R.layout.fragment_manage_topics) {
             findNavController().navigate(action)
         }
 
-        // to manage questions fragment
+        // đến manage questions fragment
         manageTopicsAdapter.setOnTopicClickListener { topicId, topicName ->
             val action = ManageTopicsFragmentDirections
                 .actionManageTopicsFragmentToManageQuestionsFragment(
@@ -75,7 +75,7 @@ class ManageTopicsFragment : Fragment(R.layout.fragment_manage_topics) {
     }
 
     /**
-     * Set up adapters and few attributes for topics recycler view
+     * Thiết lập bộ điều hợp và một vài thuộc tính cho chế độ xem trình tái chế chủ đề
      */
     private fun setupAllTopicsRecyclerView() {
         manageTopicsAdapter = ManageTopicsAdapter()
@@ -88,7 +88,7 @@ class ManageTopicsFragment : Fragment(R.layout.fragment_manage_topics) {
     }
 
     /**
-     * Set header text of the fragment
+     * Đặt văn bản tiêu đề của fragment
      */
     private fun setHeaderText() {
         val headerString = "${getString(R.string.tv_all_topics)} ${args.courseName}"

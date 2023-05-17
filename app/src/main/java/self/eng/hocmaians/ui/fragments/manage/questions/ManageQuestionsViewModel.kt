@@ -37,7 +37,7 @@ class ManageQuestionsViewModel @Inject constructor(
     }
 
     /* -------------------------- Add, Edit questions fragment -------------------------- */
-    // insert, update question state for Fragment to observe
+    // chèn, cập nhật trạng thái câu hỏi cho Fragment để quan sát
     private val _insertQuestionStatus = MutableLiveData<Event<Resource<Question>>>()
     val insertQuestionStatus: LiveData<Event<Resource<Question>>> = _insertQuestionStatus
 
@@ -48,10 +48,10 @@ class ManageQuestionsViewModel @Inject constructor(
     val deleteQuestionStatus: LiveData<Event<Resource<String>>> = _deleteQuestionStatus
 
     /**
-     * Post value when there's an error when adding OR updating a question
+     * Đăng giá trị khi có lỗi khi thêm HOẶC cập nhật câu hỏi
      *
-     * @param action is the action Add question, or Edit question
-     * @param errorMessage the error message to post
+     * @param action là hành động Thêm câu hỏi, hoặc Sửa câu hỏi
+     * @param errorMessage báo lỗi cần đăng
      */
     private fun insertUpdateQuestionError(action: String, errorMessage: String) {
         if (action == ACTION_ADD_QUESTION) {

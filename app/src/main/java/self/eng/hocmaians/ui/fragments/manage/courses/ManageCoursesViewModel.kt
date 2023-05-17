@@ -12,6 +12,6 @@ class ManageCoursesViewModel @Inject constructor(
     repository: IRepository
 ) : ViewModel() {
 
-    // live data from db for manage courses related fragments to observe
+    // dữ liệu trực tiếp từ db để quản lý các đoạn liên quan đến khóa học để quan sát
     val courses: LiveData<List<Course>> = repository.getAllCourses()
 }

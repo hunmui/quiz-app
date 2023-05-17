@@ -51,11 +51,11 @@ class AddEditQuestionFragment : Fragment(R.layout.fragment_add_edit_question) {
         }
 
         if (args.questionAction == Constants.ACTION_ADD_QUESTION) {
-            // if this is adding question:
-            // 1, Change the title to "Add question"
-            // 2, show the corresponding help message
-            // 3, Do not show delete button
-            // 4, Show add question button and set a click listener on it to add question
+            // nếu đây là câu hỏi thêm:
+            // 1, Đổi tiêu đề thành "Thêm câu hỏi"
+            // 2, hiển thị thông báo trợ giúp tương ứng
+            // 3, Không hiện nút xóa
+            // 4, Hiển thị nút thêm câu hỏi và đặt trình nghe nhấp chuột vào đó để thêm câu hỏi
 
             binding.apply {
                 tvAddEditQuestion.text = getString(R.string.tv_add_question)
@@ -71,12 +71,12 @@ class AddEditQuestionFragment : Fragment(R.layout.fragment_add_edit_question) {
                 }
             }
         } else {
-            // if this is editing question:
-            // 1, Change the title to "Edit question"
-            // 2, Hide text prefix in tilFirstOption, tilSecondOption, tilThirdOption, tilFourthOption
-            // 3, Fill the edit text with question attributes
-            // 4, Show delete button, and set a click listener on it to delete question
-            // 5, Show edit question button, and set a click listener on it to edit question
+            // nếu đây là câu hỏi chỉnh sửa:
+            // 1, Đổi tiêu đề thành "Sửa câu hỏi"
+            // 2, Ẩn tiền tố văn bản trong tilFirstOption, tilSecondOption, tilThirdOption, tilFourthOption
+            // 3, Điền vào văn bản chỉnh sửa với các thuộc tính câu hỏi
+            // 4, Hiển thị nút xóa và đặt trình nghe nhấp vào nút đó để xóa câu hỏi
+            // 5, Hiển thị nút chỉnh sửa câu hỏi và đặt trình nghe nhấp chuột vào đó để chỉnh sửa câu hỏi
 
             binding.apply {
                 tvAddEditQuestion.text = getString(R.string.tv_edit_question)

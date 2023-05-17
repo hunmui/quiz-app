@@ -37,12 +37,12 @@ import java.util.*
 
 // TODO: CANNOT Handles up button when doing quiz AND when checking answers?? Can but have to rewrite every single fragment to handle up btn
 /**
- * DOES NOT allow user to rotate screen in this fragment
+ * KHÔNG cho phép người dùng xoay màn hình trong đoạn này
  *
- * get Current Screen Rotation:
+ * nhận Xoay màn hình hiện tại:
  * https://stackoverflow.com/questions/10380989/how-do-i-get-the-current-orientation-activityinfo-screen-orientation-of-an-a
  *
- * keep current orientation:
+ * giữ định hướng hiện tại:
  * https://stackoverflow.com/questions/51710304/set-landscape-orientation-for-fragment-in-single-activity-architecture
  */
 @AndroidEntryPoint
@@ -55,7 +55,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     // view model
     private val viewModel: QuizViewModel by viewModels()
 
-    // containing all passed arguments
+    // chứa tất cả các đối số đã truyền
     private val args: QuizFragmentArgs by navArgs()
 
     // adapters
@@ -64,15 +64,15 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
 
     private var isCheckAnswersOpened = false
 
-    // current screen orientation
+    // hướng màn hình hiện tại
     private var currentOrientation: Int = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-    // timer for practice test
+    // hẹn giờ cho bài kiểm tra thực hành
     private lateinit var countDownTimer: CountDownTimer
     private var timeLeftInMillis: Long = Constants.PRACTICE_TEST_TIMER_IN_MILLIS
 
     /**
-     * Handles event when user click the back button on the device
+     * Xử lý sự kiện khi người dùng bấm vào nút quay lại trên thiết bị
      */
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -89,9 +89,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Get the current screen rotation.
+     * Nhận xoay màn hình hiện tại.
      *
-     * @return the current screen rotation.
+     * @return xoay màn hình hiện tại.
      */
     private fun getScreenOrientation(): Int {
         val rotation: Int = activity?.windowManager?.defaultDisplay!!.rotation
@@ -100,7 +100,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         val width = dm.widthPixels
         val height = dm.heightPixels
 
-        // if the device's natural orientation is portrait:
+        // nếu hướng tự nhiên của thiết bị là dọc:
         return if (
             ((rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_180) && height > width) ||
             ((rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270) && width > height)
@@ -124,7 +124,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Save the current orientation
+     * Lưu hướng hiện tại
      */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -142,12 +142,12 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             KEY_CURRENT_ORIENTATION
         ) ?: getScreenOrientation()
 
-        // fix screen orientation for all fragments in MainActivity
+        // sửa hướng màn hình cho tất cả các fragments trong MainActivity
         activity?.requestedOrientation = currentOrientation
 
         setupCheckAnswerRecyclerView()
 
-        // only initialize if first time this fragment gets created
+        // chỉ khởi tạo nếu lần đầu tiên fragment này được tạo
         if (savedInstanceState == null) {
             viewModel.getQuestions(questionQuantity = args.quizAmount, topicId = args.topicId)
 
@@ -166,7 +166,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             }
         }
 
-        // start timer if this is practice test
+        // bắt đầu hẹn giờ nếu đây là bài kiểm tra thực hành
         if (args.courseName == COURSE_NAMES[3]) {
             startCountDown()
         }
@@ -178,7 +178,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
         }
 
         binding.apply {
-            // open OR close check answers recyclerView
+            // mở HOẶC đóng kiểm tra câu trả lời RecyclerView
             btnCheckAnswers.setOnClickListener {
                 isCheckAnswersOpened = !isCheckAnswersOpened
                 setVisibilityOfCheckAnswers()
@@ -193,7 +193,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Observe the status of saving user answers and score.
+     * Quan sát trạng thái lưu câu trả lời của người dùng và ghi điểm.
      */
     private fun subscribeToObserver() {
         viewModel.save.observe(viewLifecycleOwner) {
@@ -202,7 +202,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
                     Status.SUCCESS -> {
                         binding.pbSubmitTest.visibility = View.GONE
 
-                        // changing fragment, pass required arguments
+                        // thay đổi fragment, truyền đối số cần thiết
                         val action = QuizFragmentDirections
                             .actionQuizFragmentToReviewAnswersFragment(
                                 topicId = args.topicId,
@@ -227,9 +227,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Set up adapter for viewPager
+     * Thiết lập bộ điều hợp cho viewPager
      *
-     * @param questions a list of questions
+     * @param questions một danh sách các câu hỏi
      */
     private fun setupQuizViewPager(questions: List<Question>) {
         quizAdapter = QuizAdapter(this, questions)
@@ -248,7 +248,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Set course name and topic name
+     * Đặt tên khóa học và tên chủ đề
      */
     private fun setSomeTextOnTop() {
         binding.apply {
@@ -261,7 +261,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Set up check answer recycler view, and set a click listener on its adapter
+     * Thiết lập chế độ xem trình tái chế câu trả lời kiểm tra và đặt trình nghe nhấp chuột trên bộ điều hợp của nó
      */
     private fun setupCheckAnswerRecyclerView() {
         checkAnswersAdapter = CheckAnswersAdapter()
@@ -272,14 +272,14 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             setHasFixedSize(true)
         }
 
-        // log the viewPager's page that the user want to navigate
+        // đăng nhập trang viewPager mà người dùng muốn điều hướng
         checkAnswersAdapter.setOnCheckAnswerClickListener { viewPagerPosition ->
             onAnswerClick(position = viewPagerPosition)
         }
     }
 
     /**
-     * Set visibility of check answers recycler view, and change btnCheckAnswers text
+     * Đặt chế độ hiển thị của chế độ xem trình tái chế câu trả lời kiểm tra và thay đổi văn bản btnCheckAnswers
      */
     private fun setVisibilityOfCheckAnswers() {
         if (isCheckAnswersOpened) {
@@ -290,15 +290,15 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Log user's answer (newly answered or change answer). Then automatically move to next question,
-     * only if that question is newly answered.
+     * Ghi lại câu trả lời của người dùng (trả lời mới hoặc thay đổi câu trả lời). Sau đó tự động chuyển sang câu hỏi tiếp theo,
+     * chỉ khi câu hỏi đó mới được trả lời.
      *
-     * @param answeredPosition user's answer.
+     * @param answerPosition câu trả lời của người dùng.
      */
     private fun onChecked(answeredPosition: Int) {
 
         binding.apply {
-            // get current position of the ViewPager2 (position start from 0)
+            // lấy vị trí hiện tại của ViewPager2 (vị trí bắt đầu từ 0)
             checkAnswersAdapter.notifyItemChanged(viewPagerQuiz.currentItem)
 
             val nextPage = viewModel.onAnswerQuestion(
@@ -307,7 +307,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
             )
             setDoneQuantityText(viewModel.doneQuantity)
 
-            // move to next page
+            // di chuyển đến trang tiếp theo
             if ((nextPage == (viewPagerQuiz.currentItem + 1)) &&
                 (nextPage != viewPagerQuiz.adapter?.itemCount)
             ) {
@@ -317,10 +317,10 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * What to do when user click an answer in check Answer recycler view: close the recycler view,
-     * and move viewPager to the corresponding question.
+     * Phải làm gì khi người dùng nhấp vào câu trả lời trong kiểm tra Chế độ xem trình tái chế câu trả lời: đóng chế độ xem trình tái chế,
+     * và di chuyển viewPager đến câu hỏi tương ứng.
      *
-     * @param position position of question
+     * @param position vị trí của câu hỏi
      */
     private fun onAnswerClick(position: Int) {
         isCheckAnswersOpened = false
@@ -332,9 +332,9 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Set the done quantity text.
+     * Đặt văn bản số lượng đã thực hiện.
      *
-     * @param doneQuantity how many question has the user done so far.
+     * @param doneQuantity lượng người dùng đã thực hiện bao nhiêu câu hỏi cho đến nay.
      */
     private fun setDoneQuantityText(doneQuantity: Int) {
         val textToDisplay =
@@ -387,7 +387,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Show this dialog to user to confirm his decision
+     * Đóng bộ điều hợp kiểm tra câu trả lời nếu nó hiển thị, nếu không sẽ hiển thị hộp thoại để xác nhận người dùng thoát
      */
     private fun showAreYouSureDialog() {
         val dialogBuilder: AlertDialog.Builder = AlertDialog.Builder(context)
@@ -407,7 +407,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Handle the Up button in a funny way!!!
+     * Xử lý nút Up !!!
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         CommonMethods.showHelpDialog(
@@ -419,7 +419,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Make tvTimer visible and start the count down
+     * Hiển thị tvTimer và bắt đầu đếm ngược
      */
     private fun startCountDown() {
         binding.tvTimer.visibility = View.VISIBLE
@@ -442,7 +442,7 @@ class QuizFragment : Fragment(R.layout.fragment_quiz) {
     }
 
     /**
-     * Update count down text based on the time left in millisecond
+     * Cập nhật văn bản đếm ngược dựa trên thời gian còn lại tính bằng mili giây
      */
     private fun updateCountDownText() {
         val minutes = ((timeLeftInMillis / 1000) / 60).toInt()

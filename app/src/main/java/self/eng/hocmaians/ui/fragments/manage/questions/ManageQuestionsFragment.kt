@@ -76,7 +76,7 @@ class ManageQuestionsFragment : Fragment(R.layout.fragment_manage_questions) {
     }
 
     /**
-     * Set up all questions recycler view
+     * Thiết lập chế độ xem tất cả các câu hỏi
      */
     private fun setupAllQuestionsRecyclerView() {
         manageQuestionsAdapter = BookmarksAdapter()
@@ -89,7 +89,7 @@ class ManageQuestionsFragment : Fragment(R.layout.fragment_manage_questions) {
     }
 
     /**
-     * Set header text for the fragment
+     * Đặt văn bản tiêu đề cho đoạn
      */
     private fun setHeaderText() {
         val headerString = "${getString(R.string.tv_all_questions_1)} ${args.topicName} " +
